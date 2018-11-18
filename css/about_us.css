@@ -1,43 +1,49 @@
-#main{
-    max-width: 800px;
-    margin: auto;
-    border: 1px solid #E8E8E8;
-    border-radius: 8px;
-    background-image: url("http://bamstudio.co/wp-content/uploads/2018/04/dark-grey-wallpaper-plain-dark-grey-wallpaper-wallpaper-plain-light-grey-wallpaper-color-wallpaper-dark-grey-wallpaper-for-walls.jpg");
+body, html {
+    height: 99.89%;
 }
 
-#page{
-    background-color: #23272b;
+.bg {
+    /* The image used */
+    background-image: url(../images/background.jpg);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: -10px -8px -10px -8px;
 }
 
 .heading{
     font-size: 30px;
-    font-family: fantasy;
+    font-family:Quicksand;
     letter-spacing: 3px;
-    color: #5a6268;
-    padding: 0px 220px;
+    margin: 0 70px 10px 70px;
+    color: #f7f7f7;
+    padding: 40px 20px;
     text-shadow: 6px 4px 2px #000000;
 }
 
-.text_background{
+.text_background {
     border-radius: 8px;
-    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
-    margin: 0 100px 10px 100px;
+    font-family: Quicksand;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
     font-size: 20px;
-    background-color: #23272b;
+    background: rgba(0, 0, 0, 0.5);
     color: #f7f7f7;
-    opacity: 0.5;
-    padding: 10px 50px;
+    padding: 20px 20px;
 }
 
-.padding1{
-    padding: 0px 260px;
+@media (min-width: 1000px) {
+    .m1{
+         margin: 0 300px 10px 300px;
+    }
 }
 
-.bar{
-    border: 1px solid #23272b;
-    border-radius: 12px;
-    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
-    margin: 10px 80px 10px 80px;
-    background-image: url("http://bamstudio.co/wp-content/uploads/2018/04/dark-grey-wallpaper-plain-dark-grey-wallpaper-wallpaper-plain-light-grey-wallpaper-color-wallpaper-dark-grey-wallpaper-for-walls.jpg");
+@media (max-width: 1000px) {
+    .m2{
+        margin: 0 70px 10px 70px;
+    }
 }
