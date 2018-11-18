@@ -3,13 +3,34 @@
     margin: auto;
 }
 
-.article{
+.heading{
+    font-size: 24px;
+    font-family: fantasy;
+    letter-spacing: 3px;
+}
+
+.bar{
     border: 1px solid #E8E8E8;
     border-radius: 12px;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
-    width:auto;
-    margin: 0 0 10px 0;
+    margin: 20px 0 20px 0;
     padding: 10px 12px;
-    color:darkseagreen;
     background-image: url("https://steamuserimages-a.akamaihd.net/ugc/851594855271629039/C127104FD5B431499AF7F8014170D213742BCC0E/");
+}
+
+.background{
+    border: 1px solid #E8E8E8;
+    border-radius: 12px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    margin: 20px 0 20px 0;
+    padding: 10px 12px;
+    background-image: url("bar.jpg");
+}
+
+.bar1{
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    margin: 0 10px 10px 10px;
+    padding: 10px 12px;
+    background-color: #000000;
 }
