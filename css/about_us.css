@@ -1,49 +1,33 @@
-body, html {
-    height: 99.89%;
-}
-
-.bg {
-    /* The image used */
-    background-image: url(../images/background.jpg);
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: -10px -8px -10px -8px;
+#bg {
+    background-color: darkgray;
 }
 
 .heading{
     font-size: 30px;
-    font-family:Quicksand;
-    letter-spacing: 3px;
-    margin: 0 70px 10px 70px;
+    font-family:'Ubuntu',sans-serif;
     color: #f7f7f7;
-    padding: 40px 20px;
+    padding: 5px 10px;
     text-shadow: 6px 4px 2px #000000;
 }
 
 .text_background {
     border-radius: 8px;
-    font-family: Quicksand;
+    font-family:'Ubuntu',sans-serif;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: maroon;
     color: #f7f7f7;
     padding: 20px 20px;
 }
 
 @media (min-width: 1000px) {
     .m1{
-         margin: 0 300px 10px 300px;
+         margin: 0 400px 10px 400px;
     }
 }
 
 @media (max-width: 1000px) {
     .m2{
-        margin: 0 70px 10px 70px;
+        padding: 5px 20px;
+        margin: 0 15px 0 15px;
     }
 }

@@ -3,7 +3,7 @@
 }
 h1.hhh
 {
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
     color: #6c757d;
 }
@@ -41,7 +41,6 @@ button
 
 body
 {
-    background-image: url("../images/Light-Pink-Backgrounds.jpg");
-    height: 100%;
+    background-color:lightgray;
 }
 

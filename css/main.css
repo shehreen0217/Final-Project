@@ -1,0 +1,81 @@
+
+body {
+    background-image: url("bg.png");
+}
+
+.cat {
+    color: #4b0082;
+    font-family: 'Archivo Black', sans-serif;
+}
+.cat_name {
+    font-family: 'Sedgwick Ave', cursive;
+}
+
+.cat_link:link{
+    text-decoration: none;
+    color: black;
+}
+
+.cat_link :active{
+    text-decoration: none;
+    color: orangered;
+}
+
+.cat_link:hover{
+    text-decoration: none;
+    color: mediumpurple;
+}
+
+.cat_link:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.img_padding {
+
+    padding: 20px;
+}
+
+/*#navbar {
+    border: 2px solid indigo;
+    background: indigo;
+}*/
+.navitem{
+    color: white;
+    font-family: 'Spicy Rice', cursive;
+}
+.navitem1 {
+    padding: 0px;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    font-weight: bolder;
+    font-size: 50px;
+
+}
+
+.navbar-brand {
+    text-align: left;
+}
+
+.navbar-header {
+    float: right;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+
+}
+.navbar-brand {float:none;}
+
+
+.navbar-default {
+    background-color: black;
+    border-color: black;
+}
+
+.container-fluid{
+    background-color: black;
+}
+.navitem1:active {
+    text-decoration: none;
+    color: white;
+}

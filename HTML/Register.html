@@ -3,25 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/Register.css">
+    <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Old+Standard+TT">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Signup-TheInstantBloggers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Pacifico|Spicy+Rice|Sedgwick+Ave|Archivo+Black" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
+<div id="navbar">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <!--logo-->
+
+            <div class="navbar-header">
+                <a class="navitem1" href="#" class="navbar-brand"><h1>TIB</h1> <h4>The Instant Bloggers</h4> </a>
+            </div>
+
+            <div>
+                <ul class="nav navbar-collapse">
+                    <li class="active"> <a class="navitem" href="#"><i class="fa fa-home" aria-hidden="true"></i> Home </a> </li>
+                    <li> <a class="navitem" href="#"> <i class="fa fa-users" aria-hidden="true"></i> About Us </a> </li>
+
+
+                    <!--drop down list-->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Options
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
+                            <a class="dropdown-item" href="#"><i class="far fa-frown"></i> Forgot Password</a>
+                            <a class="dropdown-item" href="#"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
+                        </div>
+                    </div>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+</div>
+
 <div class="container">
 
-        <h1 class="hhh" >Sign Up</h1>
+    <h1 class="hhh" >Sign Up</h1>
     <form class="sss">
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-1"></div>
-               <div class="col-lg-2">
-                   <label for="fname">First Name:</label>
-               </div>
+                <div class="col-lg-2">
+                    <label for="fname">First Name:</label>
+                </div>
                 <div class="col-lg-2">
                     <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname">
                 </div>
