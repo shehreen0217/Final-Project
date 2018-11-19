@@ -1,29 +1,30 @@
 
-body {
-    background-image: url("bg.png");
+#bg{
+    background-color:#cac6c6;
 }
 
 .cat {
-    color: #4b0082;
+
     font-family: 'Archivo Black', sans-serif;
+    color: maroon;
 }
 .cat_name {
-    font-family: 'Sedgwick Ave', cursive;
+    font-family: 'Lobster', cursive;
 }
 
 .cat_link:link{
     text-decoration: none;
-    color: black;
+    color:maroon;
 }
 
 .cat_link :active{
     text-decoration: none;
-    color: orangered;
+    color: grey;
 }
 
 .cat_link:hover{
     text-decoration: none;
-    color: mediumpurple;
+    color: black;
 }
 
 .cat_link:visited{
@@ -49,7 +50,7 @@ body {
     font-family: 'Pacifico', cursive;
     color: white;
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 70px;
 
 }
 
