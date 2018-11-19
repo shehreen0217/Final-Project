@@ -19,8 +19,11 @@ body{
 .map_container
 {
     width: 200px;
-    margin: 0px;
+    margin-top: 5%;
+    margin-bottom: 5%;
     padding: 0px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #000000;
 }
 
 .box{
@@ -63,6 +66,25 @@ body{
     margin: 0px 150px 0px 150px;
 }
 
+@media (max-width: 1200px) {
+    .box{
+        margin: 0px 0px 0px 0px;
+    }
+    .para{
+        margin: 0px 0px 0px 0px;
+    }
+    .buttonbox{
+        margin: 0px 0px 0px 0px;
+    }
+    .form
+    {
+        margin: 0px 0px 0px 0px;
+    }
+    .form1
+    {
+        margin: 0px 0px 0px 0px;
+    }
+}
 
 ::-webkit-input-placeholder {
     color: lightgoldenrodyellow;
