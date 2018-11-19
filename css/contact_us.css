@@ -1,0 +1,99 @@
+body{
+    font-family: "Quicksand", serif;
+}
+.header {
+    text-align: center;
+}
+
+.header h1{
+    color: whitesmoke;
+    text-shadow: 6px 4px 2px #000000;
+}
+
+.header p{
+    color: whitesmoke;
+}
+
+.box{
+    border-radius: 8px;
+    font-family:'Ubuntu',sans-serif;
+    box-shadow: 0px 0px 10px #000000;
+    background-color: maroon;
+    color: #f7f7f7;
+    padding: 20px 40px;
+    margin: 52px 100px 10px 100px;
+}
+
+.form {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin: 0px 300px 0px 300px;
+}
+
+.form1 {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin: 0px 150px 0px 150px;
+}
+
+
+::-webkit-input-placeholder {
+    color: lightgoldenrodyellow;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
