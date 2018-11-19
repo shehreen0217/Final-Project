@@ -80,3 +80,21 @@
     text-decoration: none;
     color: white;
 }
+
+footer
+{
+    background-color: black;
+    min-height: 200px;
+    max-height: 500px;
+    color: white;
+    box-sizing:content-box;
+    padding-bottom: 0;
+    padding-right: 0;
+}
+.last {
+    color: orangered;
+}
+.sss{
+    color: black;
+}
+
