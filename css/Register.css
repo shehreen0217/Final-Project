@@ -1,20 +1,19 @@
-* {
-    font-family: Verdana, Arial, sans-serif;
+*{
+    font-family: 'Ubuntu',sans-serif;
 }
 h1.hhh
 {
     margin-top: 5%;
     text-align: center;
-    color: #6c757d;
+    text-shadow: 6px 4px 2px #000000;
+    color: #f7f7f7;
 }
 form.sss
 {
     margin-top: 5%;
-    color: #6c757d;
 }
 button
 {
-    background-color: #4CAF50; 
     border: none;
     color: white;
     padding: 16px 32px;
@@ -23,7 +22,7 @@ button
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    -webkit-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
 }
@@ -31,7 +30,8 @@ button
 .button3 {
     background-color: white;
     color: black;
-    border: 2px solid #1E93AF
+    border: 2px solid #1E93AF;
+    border-radius: 10px;
 }
 
 .button3:hover {
@@ -44,3 +44,12 @@ body
     background-color:lightgray;
 }
 
+.box{
+    border-radius: 8px;
+    margin: 0 100px 10px 100px;
+    font-family:'Ubuntu',sans-serif;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    background-color: maroon;
+    color: #f7f7f7;
+    padding: 20px 20px;
+}

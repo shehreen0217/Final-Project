@@ -1,5 +1,5 @@
 #bg {
-    background-color: darkgray;
+    background-color: #c6c6c6;
 }
 
 .heading{
@@ -12,7 +12,6 @@
 
 .text_background {
     border-radius: 8px;
-    font-family:'Ubuntu',sans-serif;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
     background-color: maroon;
     color: #f7f7f7;
