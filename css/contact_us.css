@@ -15,6 +15,14 @@ body{
     color: whitesmoke;
 }
 
+
+.map_container
+{
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
 .box{
     border-radius: 8px;
     font-family:'Ubuntu',sans-serif;
@@ -28,7 +36,6 @@ body{
 .para{
     color: darkblue;
     font-family: "Quicksand", serif;
-
     margin: 30px 100px -40px 100px;
 }
 
@@ -36,7 +43,7 @@ body{
     border-radius: 8px;
     font-family:'Ubuntu',sans-serif;
     box-shadow: 0px 0px 10px #000000;
-    background-color: maroon;
+    background-color: black;
     color: #f7f7f7;
     padding: 20px 40px;
     margin: 52px 100px 10px 100px;
@@ -78,41 +85,3 @@ body{
     transition-duration: 0.4s;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
