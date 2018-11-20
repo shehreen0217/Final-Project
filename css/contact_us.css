@@ -1,8 +1,9 @@
 body{
-    font-family: "Quicksand", serif;
+    font-family: 'Lobster',cursive;
 }
 .header {
     text-align: center;
+    font-family: 'Lobster', cursive;
 }
 
 .header h1{
