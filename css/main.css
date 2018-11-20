@@ -81,20 +81,23 @@
     color: white;
 }
 
-footer
+#f
 {
+    min-height: 300px;
     background-color: black;
-    min-height: 200px;
-    max-height: 500px;
     color: white;
-    box-sizing:content-box;
-    padding-bottom: 0;
-    padding-right: 0;
 }
 .last {
     color: orangered;
 }
-.sss{
-    color: black;
+.ss{
+    background: black;
 }
-
+.lol
+{
+    color: orangered;
+}
+.end
+{
+    color: white;
+}
