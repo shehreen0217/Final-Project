@@ -18,6 +18,12 @@
     padding: 20px 20px;
 }
 
+@media (max-width: 800px) {
+    .text_background{
+        text-align: left;
+    }
+}
+
 .bm{
     margin-bottom: 10%;
 }
