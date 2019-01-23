@@ -102,8 +102,8 @@
 
             <div>
                 <ul class="nav navbar-collapse">
-                    <li class="active"> <a class="navitem" href="../index.html"><i class="fa fa-home" aria-hidden="true"></i> Home </a> </li>
-                    <li> <a class="navitem" href="about_us.html"> <i class="fa fa-users" aria-hidden="true"></i> About Us </a> </li>
+                    <li class="active"> <a class="navitem" href="../index.php"><i class="fa fa-home" aria-hidden="true"></i> Home </a> </li>
+                    <li> <a class="navitem" href="about_us.php"> <i class="fa fa-users" aria-hidden="true"></i> About Us </a> </li>
 
 
                     <!--drop down list-->
@@ -111,10 +111,10 @@
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="login.html"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
-                            <a class="dropdown-item" href="Register.html"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
-                            <a class="dropdown-item" href="Forget_Password.html"><i class="fa fa-frown"></i> Forgot Password</a>
-                            <a class="dropdown-item" href="contact_us.html"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
+                            <a class="dropdown-item" href="login.php"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
+                            <a class="dropdown-item" href="Register.php"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
+                            <a class="dropdown-item" href="Forget_Password.php"><i class="fa fa-frown"></i> Forgot Password</a>
+                            <a class="dropdown-item" href="contact_us.php"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
                         </div>
                     </div>
                 </ul>
@@ -138,7 +138,7 @@
             <br>
             <input type="button" value="Log In" class="login-button"/>
             <br>
-            <h6 class="no-access"><a href="Forget_Password.html">Forget Password?</a></h6>
+            <h6 class="no-access"><a href="Forget_Password.php">Forget Password?</a></h6>
         </div>
     </div>
 
@@ -157,11 +157,11 @@
                 <div class="col-lg-3 col-nd-6 footer-links">
                     <h4 class="end">Useful Links</h4>
                     <ul>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="../index.html">Home</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="Register.html">Register</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="login.html">Login</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="about_us.html">About us</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="contact_us.html">Contact us</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="../index.php">Home</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="Register.php">Register</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="login.php">Login</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="about_us.php">About us</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="contact_us.php">Contact us</a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-nd-6 footer-contact">

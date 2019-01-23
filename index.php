@@ -27,8 +27,8 @@
 
             <div>
                 <ul class="nav navbar-collapse">
-                    <li class="active"> <a class="navitem" href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home </a> </li>
-                    <li> <a class="navitem" href="HTML/about_us.html"> <i class="fa fa-users" aria-hidden="true"></i> About Us </a> </li>
+                    <li class="active"> <a class="navitem" href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home </a> </li>
+                    <li> <a class="navitem" href="server/about_us.php"> <i class="fa fa-users" aria-hidden="true"></i> About Us </a> </li>
 
 
                     <!--drop down list-->
@@ -36,10 +36,10 @@
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="HTML/login.html"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
-                            <a class="dropdown-item" href="HTML/Register.html"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
-                            <a class="dropdown-item" href="HTML/Forget_Password.html"><i class="far fa-frown"></i> Forgot Password</a>
-                            <a class="dropdown-item" href="HTML/contact_us.html"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
+                            <a class="dropdown-item" href="server/login.php"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
+                            <a class="dropdown-item" href="server/Register.php"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
+                            <a class="dropdown-item" href="server/Forget_Password.php"><i class="far fa-frown"></i> Forgot Password</a>
+                            <a class="dropdown-item" href="server/contact_us.php"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
                         </div>
                     </div>
                 </ul>
@@ -53,7 +53,7 @@
 <h1 class="cat" align="center"><b> <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Categories </b></h1>
 <div class="img_padding">
     <div class="row">
-        <div class="col-md-4" > <a class="cat_link" href="HTML/sports.html" title="Sports">  <img src="images/pak2.jpg " width="500" height="300" class="img-responsive"> <h2 class="cat_name"><i class="fa fa-trophy" aria-hidden="true"></i> Sports </h2>  </a> </div>
+        <div class="col-md-4" > <a class="cat_link" href="server/sports.php" title="Sports">  <img src="images/pak2.jpg " width="500" height="300" class="img-responsive"> <h2 class="cat_name"><i class="fa fa-trophy" aria-hidden="true"></i> Sports </h2>  </a> </div>
         <div class="col-md-4" > <a class="cat_link" href="#" title="Technology">  <img src="images/tec.jpg " width="460" height="300" class="img-responsive"> <h2 class="cat_name"> <i class="fa fa-mobile" aria-hidden="true"></i> Technology </h2> </a></div>
         <div class="col-md-4" > <a class="cat_link" href="#" title="Entertainment">  <img src="images/enter.jpg " width="460" height="300" class="img-responsive"> <h2 class="cat_name"><i class="fa fa-camera-retro" aria-hidden="true"> </i> Entertainment</h2></a></div>
 
@@ -83,11 +83,11 @@
                 <div class="col-lg-3 col-nd-6 footer-links">
                     <h4 class="end">Useful Links</h4>
                     <ul>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="index.html">Home</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="HTML/Register.html">Register</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="HTML/login.html">Login</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="HTML/about_us.html">About us</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="HTML/contact_us.html">Contact us</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="index.php">Home</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="server/Register.php">Register</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="server/login.php">Login</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="server/about_us.php">About us</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="server/contact_us.php">Contact us</a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-nd-6 footer-contact">
