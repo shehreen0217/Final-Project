@@ -20,6 +20,34 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <?php
+    require "tib_db.php";
+
+    if(isset($_POST['signupbutton']))
+    {
+        $u_username = $_POST['username'];
+        $u_fname = $_POST['fname'];
+        $u_lname = $_POST['lname'];
+        $u_email = $_POST['email'];
+        $u_gender = $_POST['gender'];
+        $u_date = $_POST['date'];
+        $u_month = $_POST['month'];
+        $u_year = $_POST['year'];
+        $u_pass = $_POST['rpwd'];
+
+        $insert_data = " insert into users(u_username, u_fname, u_lname, u_email, u_grnder, u_date, u_month, u_year, u_password)
+                          VALUES ('$u_username', '$u_fname', '$u_lname', '$u_email', '$u_gender', '$u_date', '$u_month', '$u_year', '$u_pass')";
+        $insert_val = mysqli_query($con, $insert_data);
+
+        if($insert_val)
+        {
+            header("location: ".$_SERVER['PHP_SELF']);
+        }
+
+    }
+
+    ?>
 </head>
 <body  id="bg">
 
@@ -153,7 +181,7 @@
                     <label ><i class="far fa-calendar-alt"></i> Date Of Birth:</label>
                 </div>
                 <div class="col-lg-2">
-                    <label> Date <select class="form-control">
+                    <label> Date <select class="form-control" name="date">
                         <option value="select">-select-</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -189,7 +217,7 @@
                     </select> </label>
                 </div>
                 <div class="col-lg-2">
-                    <label> Month <select class="form-control">
+                    <label> Month <select class="form-control" name ="month">
                         <option value="select">-select-</option>
                         <option value="jan">January</option>
                         <option value="feb">February</option>
@@ -252,7 +280,7 @@
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2">
-                    <button class="button3" type="submit" value="Submit">Sign Up</button>
+                    <button class="button3" type="submit" name = "signupbutton" value="Submit">Sign Up</button>
                 </div>
 
                 <div class="col-lg-2"></div>
