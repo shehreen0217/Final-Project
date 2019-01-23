@@ -60,6 +60,25 @@ include("header.php")
             </div>
 
         </div>
+
+        <div class="form-group">
+
+            <div class="row">
+                <div class="col-lg-1">
+
+                </div>
+                <div class="col-lg-2">
+                    <label for="username"><i class="far fa-user"></i> Username:</label>
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                </div>
+
+
+            </div>
+
+
+        </div>
         <div class="form-group">
 
             <div class="row">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 07:00 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Jan 23, 2019 at 03:54 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -54,11 +54,14 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `users` (
   `u_id` int(200) NOT NULL,
+  `u_username` varchar(255) NOT NULL,
   `u_fname` varchar(250) NOT NULL,
   `u_lname` varchar(250) NOT NULL,
   `u_email` varchar(250) NOT NULL,
   `u_gender` varchar(250) NOT NULL,
-  `u_dob` date NOT NULL,
+  `u_date` int(255) NOT NULL,
+  `u_month` int(255) NOT NULL,
+  `u_year` int(255) NOT NULL,
   `u_password` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
