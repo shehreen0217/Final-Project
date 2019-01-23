@@ -70,17 +70,17 @@
     </div>
     <div class="heading" align="center"><h1>Team Members</h1></div>
     <div class="text_background bm" align="center">
-        <h4><img src="../Team-pictures/shehreen_fatima.ico">
+        <h4><img src="../team-pictures/shehreen_fatima_icon.ico">
             <a href="https://www.facebook.com/shehreen.fatima1"><i class="fab fa-facebook"></i><b> Shehreen Fatima </b></a></h4>
-        <h4><img src="../Team-pictures/yusra_shahid.ico">
+        <h4><img src="../team-pictures/yusra_shahid_icon.ico">
             <a href="https://www.facebook.com/profile.php?id=100005531296913"><i class="fab fa-facebook"></i><b> Yusra Shahid </b></a>
-        <img src="../Team-pictures/hassan_tariq_mEP_icon.ico">
+        <img src="../team-pictures/hassan_tariq_icon.ico">
             <a href="https://www.facebook.com/profile.php?id=100004056002040&ref=br_rs"><i class="fab fa-facebook"></i><b> Hassan Tariq</b></a></h4>
-        <h4><img src="../Team-pictures/ali_hamza_lCT_icon.ico">
+        <h4><img src="../team-pictures/ali_hamza_icon.ico">
             <a href="https://www.facebook.com/iamalihamza"><i class="fab fa-facebook"></i><b> Ali Hamza </b></a>
-        <img src="../Team-pictures/muhammad_ali_OXh_icon.ico">
+        <img src="../team-pictures/muhammad_ali_icon.ico">
         <a href="https://www.facebook.com/Muhammad.Ali.Khaliq"><i class="fab fa-facebook"></i><b> Muhammad Ali </b></a>
-        <img src="../Team-pictures/talha_nayyar_Fq5_icon.ico">
+        <img src="../team-pictures/talha_nayyar_icon.ico">
         <a href="https://www.facebook.com/talha.nayyar.5"><i class="fab fa-facebook"></i><b> Talha Nayyar </b></a></h4>
     </div>
 </div>
