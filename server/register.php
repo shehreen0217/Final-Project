@@ -67,7 +67,7 @@ include("header.php")
         }
     </style>
     <h1 class="hhh" > <i class="fas fa-users"></i> Sign Up</h1>
-    <form class="sss box">
+    <form class="sss box" action="login.php" method="post">
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-1"></div>
