@@ -91,6 +91,25 @@
             </div>
 
         </div>
+
+        <div class="form-group">
+
+            <div class="row">
+                <div class="col-lg-1">
+
+                </div>
+                <div class="col-lg-2">
+                    <label for="email"><i class="far fa-envelope-open"></i> Username:</label>
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control" id="email" placeholder="E-mail" name="email">
+                </div>
+
+
+            </div>
+
+
+        </div>
         <div class="form-group">
 
             <div class="row">
