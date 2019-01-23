@@ -99,10 +99,10 @@
 
                 </div>
                 <div class="col-lg-2">
-                    <label for="email"><i class="far fa-envelope-open"></i> Username:</label>
+                    <label for="username"><i class="far fa-user"></i> Username:</label>
                 </div>
-                <div class="col-lg-6">
-                    <input type="text" class="form-control" id="email" placeholder="E-mail" name="email">
+                <div class="col-lg-5">
+                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
                 </div>
 
 
