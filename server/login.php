@@ -112,8 +112,8 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="login.php"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
-                            <a class="dropdown-item" href="Register.php"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
-                            <a class="dropdown-item" href="Forget_Password.php"><i class="fa fa-frown"></i> Forgot Password</a>
+                            <a class="dropdown-item" href="register.php"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
+                            <a class="dropdown-item" href="forget_password.php"><i class="fa fa-frown"></i> Forgot Password</a>
                             <a class="dropdown-item" href="contact_us.php"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
             <br>
             <input type="button" value="Log In" class="login-button"/>
             <br>
-            <h6 class="no-access"><a href="Forget_Password.php">Forget Password?</a></h6>
+            <h6 class="no-access"><a href="forget_password.php">Forget Password?</a></h6>
         </div>
     </div>
 
@@ -158,7 +158,7 @@
                     <h4 class="end">Useful Links</h4>
                     <ul>
                         <li> <i class="ion-ios-arrow-right"></i><a href="../index.php">Home</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="Register.php">Register</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="register.php">Register</a> </li>
                         <li> <i class="ion-ios-arrow-right"></i><a href="login.php">Login</a> </li>
                         <li> <i class="ion-ios-arrow-right"></i><a href="about_us.php">About us</a> </li>
                         <li> <i class="ion-ios-arrow-right"></i><a href="contact_us.php">Contact us</a> </li>

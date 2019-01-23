@@ -37,8 +37,8 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="server/login.php"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
-                            <a class="dropdown-item" href="server/Register.php"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
-                            <a class="dropdown-item" href="server/Forget_Password.php"><i class="far fa-frown"></i> Forgot Password</a>
+                            <a class="dropdown-item" href="server/register.php"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
+                            <a class="dropdown-item" href="server/forget_password.php"><i class="far fa-frown"></i> Forgot Password</a>
                             <a class="dropdown-item" href="server/contact_us.php"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                     <h4 class="end">Useful Links</h4>
                     <ul>
                         <li> <i class="ion-ios-arrow-right"></i><a href="index.php">Home</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="server/Register.php">Register</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="server/register.php">Register</a> </li>
                         <li> <i class="ion-ios-arrow-right"></i><a href="server/login.php">Login</a> </li>
                         <li> <i class="ion-ios-arrow-right"></i><a href="server/about_us.php">About us</a> </li>
                         <li> <i class="ion-ios-arrow-right"></i><a href="server/contact_us.php">Contact us</a> </li>
