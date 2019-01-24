@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/footer.css">
 <footer id="f">
     <div class="Footer_top">
         <div class="Container">
@@ -11,11 +12,11 @@
                 <div class="col-lg-3 col-nd-6 footer-links">
                     <h4 class="end">Useful Links</h4>
                     <ul>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="../index.php">Home</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="register.php">Register</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="login.php">Login</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="about_us.php">About us</a> </li>
-                        <li> <i class="ion-ios-arrow-right"></i><a href="contact_us.php">Contact us</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="/tib/index.php">Home</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="/tib/server/register.php">Register</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="/tib/server/login.php">Login</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="/tib/server/about_us.php">About us</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="/tib/server/contact_us.php">Contact us</a> </li>
                     </ul>
                 </div>
 
