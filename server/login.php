@@ -12,6 +12,10 @@
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Pacifico|Spicy+Rice|Sedgwick+Ave|Archivo+Black|Lobster" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <?php
+    require "functions.php"
+    ?>
+
 
     <style>
         h1, h2, h3, h4, h5, h6, a {
@@ -91,40 +95,9 @@
 </head>
 
 <body id="bg">
-<div id="navbar">
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container-fluid">
-            <!--logo-->
-
-            <div class="navbar-header">
-                <a class="navitem1" href="#" class="navbar-brand"><h1>TIB</h1> <h4>The Instant Bloggers</h4> </a>
-            </div>
-
-            <div>
-                <ul class="nav navbar-collapse">
-                    <li class="active"> <a class="navitem" href="../index.php"><i class="fa fa-home" aria-hidden="true"></i> Home </a> </li>
-                    <li> <a class="navitem" href="about_us.php"> <i class="fa fa-users" aria-hidden="true"></i> About Us </a> </li>
-
-
-                    <!--drop down list-->
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="login.php"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a>
-                            <a class="dropdown-item" href="register.php"><i class="fa fa-book" aria-hidden="true"></i> Register</a>
-                            <a class="dropdown-item" href="forget_password.php"><i class="fa fa-frown"></i> Forgot Password</a>
-                            <a class="dropdown-item" href="contact_us.php"> <i class="fa fa-phone" aria-hidden="true"></i> Contact us</a>
-                        </div>
-                    </div>
-                </ul>
-
-            </div>
-
-        </div>
-    </nav>
-</div>
-
+<?php
+include("header.php")
+?>
 <div class="container">
     <div  class="login">
         <div class="login-header">
@@ -132,7 +105,7 @@
         </div>
         <div class="login-form">
             <h3><i class="fas fa-user"></i> Username:</h3>
-            <input type="text" placeholder="Username"/><br>
+            <input type="text" id="username" placeholder="Username"/><br>
             <h3><i class="fas fa-key"></i> Password:</h3>
             <input type="password" placeholder="Password"/>
             <br>
