@@ -24,7 +24,36 @@ include("server/header.php")
 
 <h1 class="cat" align="center"><b> <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Categories </b></h1>
 
-<div class="img_padding">
+
+<table class="table">
+    <?php
+    $get_cat = "select cat_title,cat_image,cat_hover,cat_link,cat_logo from categories";
+    $run_cat = mysqli_query($con,$get_cat);
+    $count_cat = mysqli_num_rows($run_cat);
+    if($count_cat==0){
+        echo "<h2> No Category exist. </h2>";
+    }
+    else {}
+
+    while ($row_pro = mysqli_fetch_array($run_cat)) {
+        $cat_title= $row_pro['cat_title'];
+        $cat_image = $row_pro['cat_image'];
+        $cat_hover =$row_pro['cat_hover'];
+        $cat_link =$row_pro['cat_link'];
+        $cat_logo=$row_pro['cat_logo'];
+        echo "<div class=\"img_padding\">
+        <div class=\"row\">
+            <div class=\"col-md-4\" > <a class=\"cat_link\" href=\"/tib/server/$cat_link\" title=$cat_hover>
+                    <img src=/tib/images/$cat_image width=\"400px\" height=\"300px\" class=\"img-responsive\">
+                    <h2 class=\"cat_name\"><i class=\"$cat_logo\" aria-hidden=\"true\"></i> $cat_title </h2>  </a>
+            </div>
+        </div>
+    </div>";
+    }
+    ?>
+
+
+<!--<div class="img_padding">
 
     <div class="row">
         <div class="col-md-4" > <a class="cat_link" href="server/sports.php" title="Sports">  <img src="images/pak2.jpg " width="500" height="300" class="img-responsive"> <h2 class="cat_name"><i class="fa fa-trophy" aria-hidden="true"></i> Sports </h2>  </a> </div>
@@ -42,7 +71,7 @@ include("server/header.php")
 
         </div>
     </div>
-</div>
+</div>-->
 <?php
 include ("server/footer.php")
 ?>
