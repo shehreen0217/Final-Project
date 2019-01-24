@@ -7,6 +7,8 @@ if(!isset($_SESSION['login_checked'])) {
 if(isset($_POST['insert_cat'])){
     $cat_title = $_POST['cat_title'];
     $cat_image = $_FILES['cat_image']['name'];
+    $cat_image_tmp = $_FILES['cat_image']['tmp_name'];
+    move_uploaded_file($cat_image_tmp,"../images/$cat_image");
 
     $insert_cat = "insert into categories (cat_title, cat_image) 
                   VALUES ('$cat_title','$cat_image');";
