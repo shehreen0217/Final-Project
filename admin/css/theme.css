@@ -56,7 +56,7 @@ a, a:hover, a:focus {
     border: 2px solid darkslategrey;
     margin-left: 40px;
     padding: 10px;
-    width: 76%;
+    width: 75%;
 }
 
 @media (min-width: 1245px) and (max-width: 1300px) {
