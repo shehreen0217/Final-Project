@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 06:25 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: Jan 24, 2019 at 06:58 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -62,6 +62,20 @@ INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `guest`
+--
+
+CREATE TABLE `guest` (
+  `g_id` int(200) NOT NULL,
+  `g_name` varchar(255) NOT NULL,
+  `g_email` varchar(200) NOT NULL,
+  `g_cn` int(200) NOT NULL,
+  `g_message` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -95,6 +109,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+-- Indexes for table `guest`
+--
+ALTER TABLE `guest`
+  ADD PRIMARY KEY (`g_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -115,6 +135,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `categories`
   MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `guest`
+--
+ALTER TABLE `guest`
+  MODIFY `g_id` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
