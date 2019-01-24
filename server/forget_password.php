@@ -25,7 +25,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body id="BG">
-
 <?php
 include("header.php")
 ?>
@@ -36,8 +35,8 @@ include("header.php")
     <button class="Code"type="button"> Send Code</button><br>
     <input class="int" type="text" placeholder="Code we sent:"><br>
     <h3 class="new"> Reset Password</h3>
-    <input class="int" type="password" placeholder="New Password:"><br>
-    <input class="int" type="password" placeholder="Confirm Password"><br>
+    <input class="int" type="password" id="password1" placeholder="New Password:"><br>
+    <input class="int" type="password" id="password2" placeholder="Confirm Password"><br>
     <button class="Submit" type="button">SUBMIT</button>
 </div>
 

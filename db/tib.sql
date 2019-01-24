@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 02:44 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: Jan 24, 2019 at 06:58 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,27 +25,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `admins` (
-  `a_id` int(255) NOT NULL,
-  `a_fullname` varchar(300) NOT NULL,
-  `a_username` varchar(300) NOT NULL,
-  `a_password` varchar(300) NOT NULL
+CREATE TABLE `admin` (
+  `admin_id` int(200) NOT NULL,
+  `Name` varchar(200) NOT NULL,
+  `Email` varchar(3000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admins`
---
-
-INSERT INTO `admins` (`a_id`, `a_fullname`, `a_username`, `a_password`) VALUES
-(1, 'Muhammad Ali Sulehri', 'ucp_ali', 'tib007'),
-(2, 'Ali Hamza', 'ucp_hamza', 'tib007'),
-(3, 'Hassan Tariq', 'ucp_hassan', 'tib007'),
-(4, 'Shehreen Fatima', 'ucp_shehreen', 'tib007'),
-(5, 'Talha Nayyar', 'ucp_talha', 'tib007'),
-(6, 'Yusra Shahid', 'ucp_yusra', 'tib007');
 
 -- --------------------------------------------------------
 
@@ -110,10 +97,10 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `admins`
+-- Indexes for table `admin`
 --
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`a_id`);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `categories`
@@ -138,10 +125,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `admins`
+-- AUTO_INCREMENT for table `admin`
 --
-ALTER TABLE `admins`
-  MODIFY `a_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`

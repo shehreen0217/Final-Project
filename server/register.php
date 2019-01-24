@@ -24,28 +24,7 @@
     <?php
     require "tib_db.php";
 
-    if(isset($_POST['signupbutton']))
-    {
-        $u_username = $_POST['username'];
-        $u_fname = $_POST['fname'];
-        $u_lname = $_POST['lname'];
-        $u_email = $_POST['email'];
-        $u_gender = $_POST['gender'];
-        $u_date = $_POST['date'];
-        $u_month = $_POST['month'];
-        $u_year = $_POST['year'];
-        $u_pass = $_POST['rpwd'];
 
-        $insert_data = " insert into users(u_username, u_fname, u_lname, u_email, u_grnder, u_date, u_month, u_year, u_password)
-                          VALUES ('$u_username', '$u_fname', '$u_lname', '$u_email', '$u_gender', '$u_date', '$u_month', '$u_year', '$u_pass')";
-        $insert_val = mysqli_query($con, $insert_data);
-
-        if($insert_val)
-        {
-            header("location: ".$_SERVER['PHP_SELF']);
-        }
-
-    }
 
     ?>
 </head>
@@ -67,7 +46,7 @@ include("header.php")
         }
     </style>
     <h1 class="hhh" > <i class="fas fa-users"></i> Sign Up</h1>
-    <form class="sss box" action="login.php" method="post">
+    <form class="sss box" action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-1"></div>
@@ -126,7 +105,7 @@ include("header.php")
 
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id = "gender">
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-2">
@@ -150,7 +129,7 @@ include("header.php")
                     <label ><i class="far fa-calendar-alt"></i> Date Of Birth:</label>
                 </div>
                 <div class="col-lg-2">
-                    <label> Date <select class="form-control" name="date">
+                    <label> Date <select class="form-control" id = "date" name="date">
                         <option value="select">-select-</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -186,7 +165,7 @@ include("header.php")
                     </select> </label>
                 </div>
                 <div class="col-lg-2">
-                    <label> Month <select class="form-control" name ="month">
+                    <label> Month <select class="form-control" id= "month" name ="month">
                         <option value="select">-select-</option>
                         <option value="jan">January</option>
                         <option value="feb">February</option>
@@ -249,7 +228,7 @@ include("header.php")
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2">
-                    <button class="button3" type="submit" name = "signupbutton" value="Submit">Sign Up</button>
+                    <button class="button3" type="submit" name="signupbutton" value="Submit" onclick="ValidatingForm()">Sign Up</button>
                 </div>
 
                 <div class="col-lg-2"></div>
@@ -265,10 +244,107 @@ include("header.php")
 </div>
 
 
-<?php
-include ("footer.php")
-?>
+
+<script >
+
+    function ValidatingForm()
+    {
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var date = document.getElementById("date").value;
+        var month = document.getElementById("month").value;
+        var year = document.getElementById("year").value;
+        var pass = document.getElementById("pwd").value;
+        var pass2 = document.getElementById("rpwd").value;
+        var gender = document.getElementById("gender").value;
+
+        var regex = /[a-zA-Z]/;
+        var result1 = fname.match(regex);
+        regex = /[a-zA-Z]/;
+        var result2 = lname.match(regex);
+        regex = /[a-zA-Z]((\.|_)*)?([0-9]*)?/;
+        var result3 = username.match(regex);
+        regex = /([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))/;
+        var result4 = email.match(regex);
+        regex = /\d[2]/;
+        var result5 = date.match(regex);
+        regex = /(.*)/;
+        var result6 = month.match(regex);
+        regex = /\d[4]/;
+        var result7 = year.match(regex);
+        regex = /(.*)/;
+        var result8 = pass.match(regex);
+        regex = /(.*)/;
+        var result9 = pass2.match(regex);
+        regex = /(.*)/;
+        var result10 = gender.match(regex);
+
+        if(result1 != null && result2 != null && result3 != null && result4 != null && result5 != null && result6 != null
+            && result7 != null && result8 != null && result9 != null && result10 != null)
+        {
+            <?php
+                echo"data inserted";
+            insertdata();
+            ?>
+        }
+        else
+        {
+            <?php echo "Enter Every Field";
+            ?>
+        }
+
+    }
+
+
+</script>
+
+
+<footer id="f">
+    <div class="Footer_top">
+        <div class="Container">
+            <div class="Row">
+                <div class="col-lg-3 col-nd-6 footer-info">
+                    <h3 class="lol">The Instant Bloggers</h3>
+                    <div class="end">Content Disclaimer:
+                        <p >All the content on our website is totally based on reality.The information is obtained from the sources that considers to be reliable. However no responsibility is accepted for the accuracy or completeness of the information</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-nd-6 footer-links">
+                    <h4 class="end">Useful Links</h4>
+                    <ul>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="../index.php">Home</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="register.php">Register</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="login.php">Login</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="about_us.php">About us</a> </li>
+                        <li> <i class="ion-ios-arrow-right"></i><a href="contact_us.php">Contact us</a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-nd-6 footer-contact">
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="google-plus"><i class="fab fa-google-plus"></i></a>
+                    <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="col-lg-3 col-nd-6 footer-newslatter">
+                    <h4>Our newsletter</h4>
+                    <p>Authentic content will be posted by authentic sources.To get our latest updates and news Subscribe us and stay tuned</p>
+                    <form  class ="kkk"action="" method="post">
+                        <input class ="ss"type="email" placeholder="Email:"><input class="last"  type="submit"value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="copyright text-muted">Copyright &copy;TIB 2018</p>
+</footer>
+
 
 
 </body>
 </html>
+
+
+
