@@ -43,14 +43,14 @@ if(isset($_POST['insert_pro'])){
             <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Title: </label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4 mt-auto">
-            <input type="text" class="form-control" id="pro_title" name="pro_title" placeholder="Enter Category Title" >
+            <input type="text" class="form-control" name="title" placeholder="Enter Category Title" >
         </div>
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-3 mt-auto">
             <label for="pro_img" class="float-md-right"><span class="d-sm-none d-md-inline"> Image: </label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4 mt-auto">
             <div class="input-group-prepend">
-                <input class="form-control" type="file" id="pro_image" name="pro_image">
+                <input class="form-control" type="file" name="image">
             </div>
         </div>
     </div>
