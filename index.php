@@ -23,7 +23,9 @@ include("server/header.php")
 ?>
 
 <h1 class="cat" align="center"><b> <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Categories </b></h1>
+
 <div class="img_padding">
+
     <div class="row">
         <div class="col-md-4" > <a class="cat_link" href="server/sports.php" title="Sports">  <img src="images/pak2.jpg " width="500" height="300" class="img-responsive"> <h2 class="cat_name"><i class="fa fa-trophy" aria-hidden="true"></i> Sports </h2>  </a> </div>
         <div class="col-md-4" > <a class="cat_link" href="#" title="Technology">  <img src="images/tec.jpg " width="460" height="300" class="img-responsive"> <h2 class="cat_name"> <i class="fa fa-mobile" aria-hidden="true"></i> Technology </h2> </a></div>
@@ -37,7 +39,6 @@ include("server/header.php")
 
         <div class="col-md-4"><a class="cat_link" href="#" title="Humor" >   <img src="images/humor.jpg " width="500" height="400" class="img-responsive"> <h2 class="cat_name"> <i class="far fa-laugh-beam"></i> Humor </h2></a> </div>
         <div class="col-md-6"><a class="cat_link" href="#" title="Trending" >
-
 
         </div>
     </div>
