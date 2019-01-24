@@ -12,6 +12,7 @@ function matchdetails()
         $password= $row['u_password'];
 
     }
+
 }
 
 function insertdata()
