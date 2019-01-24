@@ -308,7 +308,7 @@ include("header.php")
         var result9 = pass2.match(regex);
         regex = /(.*)/;
         var result10 = gender.match(regex);
-        
+
         if(result1 != null && result2 != null && result3 != null && result4 != null && result5 != null && result6 != null
             && result7 != null && result8 != null && result9 != null && result10 != null)
         {
