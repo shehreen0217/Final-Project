@@ -8,13 +8,7 @@ if(!isset($_SESSION['login_checked'])) {
 <div class="row">
     <div class="col-sm-12">
         <h1 align="center">Categories</h1>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Image</th>
-                <th>Title</th>
-            </tr>
-            </thead>
+        <table class="table">
             <?php
             $get_cat = "select * from categories";
             $run_cat = mysqli_query($con,$get_cat);
@@ -22,23 +16,21 @@ if(!isset($_SESSION['login_checked'])) {
             if($count_cat==0){
                 echo "<h2> No Category exist. </h2>";
             }
-            ?>
-            else {
+            else {?>
             <thead>
             <tr>
-                <th>Image</th>
-                <th>Title</th>
+                <th><h3>Title</h3></th>
+                <th><h3>Image</h3></th>
             </tr>
             </thead>
             <?php
-            $i = 1;
                 while ($row_pro = mysqli_fetch_array($run_cat)) {
                     $cat_title = $row_pro['cat_title'];
                     $cat_image = $row_pro['cat_image'];
                     ?>
                     <tr>
                         <th><?php echo $cat_title; ?></th>
-                        <th><img class="img-thumbnail" src='product_images/<?php echo $cat_image;?>' width='80' height='80'></th>
+                        <th><img class="img-thumbnail" src='../images/<?php echo $cat_image;?>' width='320' height='160'></th>
                         <th><a href="index.php?edit_pro=<?php echo $cat_title?>" class="btn btn-primary">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
@@ -47,8 +39,10 @@ if(!isset($_SESSION['login_checked'])) {
                             </a>
                         </th>
                     </tr>
-                <?php}?>
+            <?php
+                }
             }
+            ?>
         </table>
     </div>
 </div>

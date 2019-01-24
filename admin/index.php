@@ -38,8 +38,18 @@ if(!isset($_SESSION['login_checked'])) {
     <nav id="sidebar">
         <ul class="list-unstyled">
             <li>
+                <a href="index.php?insert_blog">
+                    <i class="fas fa-plus"></i> Insert New Blog
+                </a>
+            </li>
+            <li>
                 <a href="index.php?insert_category">
                     <i class="fas fa-plus"></i> Insert New Category
+                </a>
+            </li>
+            <li>
+                <a href="index.php?view_blogs">
+                    <i class="fas fa-credit-card"></i> View All Blogs
                 </a>
             </li>
             <li>
@@ -63,7 +73,7 @@ if(!isset($_SESSION['login_checked'])) {
             </li>
         </ul>
     </nav>
-    <div class="body1">
+    <div class="body1 container">
         <h2 class="text-center text-primary"><?php echo @$_GET['logged_in']?></h2>
         <?php
         if(isset($_GET['insert_category'])){
