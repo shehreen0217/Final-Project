@@ -24,28 +24,7 @@
     <?php
     require "tib_db.php";
 
-    if(isset($_POST['signupbutton']))
-    {
-        $u_username = $_POST['username'];
-        $u_fname = $_POST['fname'];
-        $u_lname = $_POST['lname'];
-        $u_email = $_POST['email'];
-        $u_gender = $_POST['gender'];
-        $u_date = $_POST['date'];
-        $u_month = $_POST['month'];
-        $u_year = $_POST['year'];
-        $u_pass = $_POST['rpwd'];
 
-        $insert_data = " insert into users(u_username, u_fname, u_lname, u_email, u_grnder, u_date, u_month, u_year, u_password)
-                          VALUES ('$u_username', '$u_fname', '$u_lname', '$u_email', '$u_gender', '$u_date', '$u_month', '$u_year', '$u_pass')";
-        $insert_val = mysqli_query($con, $insert_data);
-
-        if($insert_val)
-        {
-            header("location: ".$_SERVER['PHP_SELF']);
-        }
-
-    }
 
     ?>
 </head>
@@ -67,7 +46,7 @@ include("header.php")
         }
     </style>
     <h1 class="hhh" > <i class="fas fa-users"></i> Sign Up</h1>
-    <form class="sss box" action="login.php" method="post">
+    <form class="sss box" action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-1"></div>
@@ -126,7 +105,7 @@ include("header.php")
 
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id = "gender">
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-2">
@@ -150,7 +129,7 @@ include("header.php")
                     <label ><i class="far fa-calendar-alt"></i> Date Of Birth:</label>
                 </div>
                 <div class="col-lg-2">
-                    <label> Date <select class="form-control" name="date">
+                    <label> Date <select class="form-control" id = "date" name="date">
                         <option value="select">-select-</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -186,7 +165,7 @@ include("header.php")
                     </select> </label>
                 </div>
                 <div class="col-lg-2">
-                    <label> Month <select class="form-control" name ="month">
+                    <label> Month <select class="form-control" id= "month" name ="month">
                         <option value="select">-select-</option>
                         <option value="jan">January</option>
                         <option value="feb">February</option>
@@ -249,7 +228,7 @@ include("header.php")
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2">
-                    <button class="button3" type="submit" name = "signupbutton" value="Submit">Sign Up</button>
+                    <button class="button3" type="submit" name="signupbutton" value="Submit" onclick="ValidatingForm()">Sign Up</button>
                 </div>
 
                 <div class="col-lg-2"></div>
@@ -263,6 +242,63 @@ include("header.php")
     </form>
 
 </div>
+
+
+
+<script >
+
+    function ValidatingForm()
+    {
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var date = document.getElementById("date").value;
+        var month = document.getElementById("month").value;
+        var year = document.getElementById("year").value;
+        var pass = document.getElementById("pwd").value;
+        var pass2 = document.getElementById("rpwd").value;
+        var gender = document.getElementById("gender").value;
+
+        var regex = /[a-zA-Z]/;
+        var result1 = fname.match(regex);
+        regex = /[a-zA-Z]/;
+        var result2 = lname.match(regex);
+        regex = /[a-zA-Z]((\.|_)*)?([0-9]*)?/;
+        var result3 = username.match(regex);
+        regex = /([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))/;
+        var result4 = email.match(regex);
+        regex = /\d[2]/;
+        var result5 = date.match(regex);
+        regex = /(.*)/;
+        var result6 = month.match(regex);
+        regex = /\d[4]/;
+        var result7 = year.match(regex);
+        regex = /(.*)/;
+        var result8 = pass.match(regex);
+        regex = /(.*)/;
+        var result9 = pass2.match(regex);
+        regex = /(.*)/;
+        var result10 = gender.match(regex);
+
+        if(result1 != null && result2 != null && result3 != null && result4 != null && result5 != null && result6 != null
+            && result7 != null && result8 != null && result9 != null && result10 != null)
+        {
+            <?php
+                echo"data inserted";
+            insertdata();
+            ?>
+        }
+        else
+        {
+            <?php echo "Enter Every Field";
+            ?>
+        }
+
+    }
+
+
+</script>
 
 
 <footer id="f">
@@ -309,3 +345,6 @@ include("header.php")
 
 </body>
 </html>
+
+
+
