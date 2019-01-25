@@ -94,16 +94,5 @@ if(!isset($_SESSION['login_checked'])) {
         ?>
     </div>
 </div>
-
-<script src="../js/jquery-3.3.1.js"></script>
-<script src="../js/bootstrap.bundle.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
-
-    });
-</script>
 </body>
 </html>

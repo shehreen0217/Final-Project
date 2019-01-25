@@ -33,47 +33,47 @@ include("server/header.php")
     if($count_cat==0){
         echo "<h2> No Category exist. </h2>";
     }
-    else {}
 
-    while ($row_pro = mysqli_fetch_array($run_cat)) {
+    $i=0;
+
+    while ($count_cat>0) {
+
+        if($i%3==0)
+        {
+            echo "
+            <div class=\"img_padding\">
+                <div class=\"row\">";
+        }
+
+        $row_pro = mysqli_fetch_array($run_cat);
         $cat_title= $row_pro['cat_title'];
         $cat_image = $row_pro['cat_image'];
         $cat_hover =$row_pro['cat_hover'];
         $cat_link =$row_pro['cat_link'];
         $cat_logo=$row_pro['cat_logo'];
-        echo "<div class=\"img_padding\">
-        <div class=\"row\">
-            <div class=\"col-md-4\" > <a class=\"cat_link\" href=\"/tib/server/$cat_link\" title=$cat_hover>
-                    <img src=/tib/images/$cat_image width=\"400px\" height=\"300px\" class=\"img-responsive\">
-                    <h2 class=\"cat_name\"><i class=\"$cat_logo\" aria-hidden=\"true\"></i> $cat_title </h2>  </a>
-            </div>
-        </div>
-    </div>";
+
+        echo"
+                    <div class=\"col-md-4\" > <a class=\"cat_link\" href=\"/tib/server/$cat_link\" title=$cat_hover>
+                        <img src=/tib/images/$cat_image width=\"400px\" height=\"300px\" class=\"img-responsive\">
+                        <h2 class=\"cat_name\"><i class=\"$cat_logo\" aria-hidden=\"true\"></i> $cat_title </h2>  </a>
+                    </div>";
+
+        $i++;
+
+        if($i%3==0)
+        {
+            echo"                    
+                </div>
+            </div>";
+        }
+
+        $count_cat--;
     }
     ?>
 
 
-<!--<div class="img_padding">
-
-    <div class="row">
-        <div class="col-md-4" > <a class="cat_link" href="server/sports.php" title="Sports">  <img src="images/pak2.jpg " width="500" height="300" class="img-responsive"> <h2 class="cat_name"><i class="fa fa-trophy" aria-hidden="true"></i> Sports </h2>  </a> </div>
-        <div class="col-md-4" > <a class="cat_link" href="#" title="Technology">  <img src="images/tec.jpg " width="460" height="300" class="img-responsive"> <h2 class="cat_name"> <i class="fa fa-mobile" aria-hidden="true"></i> Technology </h2> </a></div>
-        <div class="col-md-4" > <a class="cat_link" href="#" title="Entertainment">  <img src="images/enter.jpg " width="460" height="300" class="img-responsive"> <h2 class="cat_name"><i class="fa fa-camera-retro" aria-hidden="true"> </i> Entertainment</h2></a></div>
-
-    </div>
-</div>
-
-<div class="img_padding">
-    <div class="row">
-
-        <div class="col-md-4"><a class="cat_link" href="#" title="Humor" >   <img src="images/humor.jpg " width="500" height="400" class="img-responsive"> <h2 class="cat_name"> <i class="far fa-laugh-beam"></i> Humor </h2></a> </div>
-        <div class="col-md-6"><a class="cat_link" href="#" title="Trending" >
-
-        </div>
-    </div>
-</div>-->
-<?php
-include ("server/footer.php")
-?>
+    <?php
+    include ("server/footer.php")
+    ?>
 </body>
 </html>
