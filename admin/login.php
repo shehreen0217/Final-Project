@@ -40,7 +40,7 @@ if(isset($_POST['login'])){
         <input type="checkbox" class="form-check-input" id="remember" name="remember">
         <label class="form-check-label" for="remember">Remember me</label>
     </div>
-    <input class="btn btn_s btn-lg" type="submit" name="login" value="Sign in">
+    <input class="btn btn_s btn-lg" type="submit" name="login" value="Log in">
 </form>
 
 </body>

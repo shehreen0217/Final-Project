@@ -34,7 +34,6 @@ include("server/header.php")
         echo "<h2> No Category exist. </h2>";
     }
 
-    echo $count_cat;
     $i=0;
 
     while ($count_cat>0) {
