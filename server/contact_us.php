@@ -1,24 +1,20 @@
 <?php
 require "tib_db.php";
 
-function insertdata()
+function insertinfo()
 {
+    echo "here";
     global $con;
     if(isset($_POST['contactusbutton']))
     {
-        $g_name = $_POST['g_name'];
-        $g_email = $_POST['g_email'];
-        $g_cn = $_POST['g_cn'];
-        $g_message = $_POST['g_message'];
+        $g_name = $_POST['name'];
+        $g_email = $_POST['email'];
+        $g_cn = $_POST['cn'];
+        $g_message = $_POST['message'];
 
         $insert_data = " insert into guest (g_name, g_email, g_cn, g_message)
                           VALUES ('$g_name','$g_email','$g_cn','$g_message');";
         $insert_val = mysqli_query($con, $insert_data);
-
-        if($insert_val)
-        {
-            header("location: ".$_SERVER['PHP_SELF']);
-        }
     }
 }
 ?>
@@ -50,6 +46,7 @@ function insertdata()
 include("header.php")
 ?>
 
+<form  action=""  onsubmit="ValidatingForm()" method="post">
 <div class="container">
     <div class="header">
         <h1><i class="fas fa-mail-bulk"></i> Contact Us</h1>
@@ -113,7 +110,7 @@ include("header.php")
         {
             console.log("data inserted");
             <?php
-            insertdata();
+            insertinfo();
             ?>
         }
         else
@@ -131,5 +128,6 @@ include("header.php")
 <?php
 include ("footer.php")
 ?>
+</form>
 </body>
 </html>

@@ -39,11 +39,9 @@ if(!isset($_SESSION['login_checked'])) {
                             <br> <?php echo "Email: $email"; ?>
                             <br> <?php echo "Contact Number: $cn";?>
                             <br> <?php echo "Message: $message"; ?>
-                        <th><a href="" class="btn btn-primary">
-
-                            </a>
-                            <a href="" class="btn btn-danger">
-
+                        <th>
+                            <a href="index.php?delete_guest=<?php echo $id?>" class="btn btn-danger">
+                                <i class="fa fa-trash-alt"></i> Delete
                             </a>
                         </th>
                     </tr>
