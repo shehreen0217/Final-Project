@@ -1,35 +1,7 @@
 <?php
 require "tib_db.php";
 
-function insertdata()
-{
-    global $con;
-    if(isset($_POST['signupbutton']))
-    {
-        $u_username = $_POST['username'];
-        $u_fname = $_POST['fname'];
-        $u_lname = $_POST['lname'];
-        $u_email = $_POST['email'];
-        $u_gender = $_POST['gender'];
-        $u_date = $_POST['date'];
-        $u_month = $_POST['month'];
-        $u_year = $_POST['year'];
-        $u_pass = $_POST['rpwd'];
-
-        $insert_data = " insert into users (u_username, u_fname, u_lname, u_email, u_gender, u_date, u_month, u_year, u_password)
-                          VALUES ('$u_username','$u_fname','$u_lname','$u_email','$u_gender','$u_date','$u_month','$u_year','$u_pass');";
-        $insert_val = mysqli_query($con, $insert_data);
-
-        if($insert_val)
-        {
-            header("location: ".$_SERVER['PHP_SELF']);
-        }
-
-    }
-
-}
-
-
+include "functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +47,7 @@ include("header.php")
         }
     </style>
     <h1 class="hhh" > <i class="fas fa-users"></i> Sign Up</h1>
-    <form class="sss box" action="" method="post" enctype="multipart/form-data">
+    <form class="sss box" action="" method="post" enctype="multipart/form-data " onsubmit="ValidatingForm()">
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-1"></div>
@@ -288,41 +260,61 @@ include("header.php")
         var pass2 = document.getElementById("rpwd").value;
         var gender = document.getElementById("gender").value;
 
-        var regex = /[a-zA-Z]/;
-        var result1 = fname.match(regex);
-        regex = /[a-zA-Z]/;
-        var result2 = lname.match(regex);
+        var regex = /[a-zA-Z]+/;
+        var result1 = fname.match(regex); // firstname validation
+        regex = /[a-zA-Z]+/;
+        var result2 = lname.match(regex); // lastname validation
         regex = /[a-zA-Z]((\.|_)*)?([0-9]*)?/;
-        var result3 = username.match(regex);
+        var result3 = username.match(regex); // username validation
         regex = /([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))/;
-        var result4 = email.match(regex);
-        regex = /\d[2]/;
-        var result5 = date.match(regex);
-        regex = /(.*)/;
-        var result6 = month.match(regex);
+        var result4 = email.match(regex); // email validation
         regex = /\d[4]/;
-        var result7 = year.match(regex);
+        var result5 = year.match(regex); //year validation
         regex = /(.*)/;
-        var result8 = pass.match(regex);
-        regex = /(.*)/;
-        var result9 = pass2.match(regex);
-        regex = /(.*)/;
-        var result10 = gender.match(regex);
+        var result6 = pass.match(regex); //password validation
 
-        if(result1 != null && result2 != null && result3 != null && result4 != null && result5 != null && result6 != null
-            && result7 != null && result8 != null && result9 != null && result10 != null)
+        if(fname.length != 0 )
         {
-            console.log("data inserted");
-            <?php
-                insertdata();
-            ?>
+            if(lname.length != 0 )
+            {
+                if(pass.length >= 6 )
+                {
+                    if(pass === pass2)
+                    {
+                        if(result1 != null && result2 != null && result3 != null && result4 != null
+                            && result5 != null && result6 != null  )
+                        {
+                            <?php
+                            insertdata();
+                            ?>
 
 
+                        }
+                        else
+                        {
+                            alert("result1:"+result1);
+                        }
+                    }
+                    else
+                    {
+                        document.getElementById(pass2).innerText = "Password Does not Match, Enter Same Password";
+                    }
+                }
+                else
+                {
+                    document.getElementById(pass).innerText = "Password should be longer than 6 characters";
+                }
+            }
+            else
+            {
+                document.getElementById(lname).innerText= "Please enter last name";
+            }
         }
         else
         {
-            console.log("data not inserted");
+            document.getElementById(fname).innerText = " Please enter first name";
         }
+
 
     }
 

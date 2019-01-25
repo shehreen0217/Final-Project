@@ -26,23 +26,59 @@
 </head>
 <body id="BG">
 <?php
-include("header.php")
+include("header.php");
 ?>
-
+<form action="" method="post">
 <h4 class="fp"><i class=" 	far fa-question-circle"></i> Forgot Password</h4>
 <div class="box">
-    <input class="int" type="text" placeholder="Your email:"><br>
+    <input class="int" type="text"  id=youremail name=youremail placeholder="Your email:"><br>
     <button class="Code"type="button"> Send Code</button><br>
     <input class="int" type="text" placeholder="Code we sent:"><br>
     <h3 class="new"> Reset Password</h3>
-    <input class="int" type="password" id="password1" placeholder="New Password:"><br>
-    <input class="int" type="password" id="password2" placeholder="Confirm Password"><br>
-    <button class="Submit" type="button">SUBMIT</button>
+    <input class="int" type="password" name="password" id="password" placeholder="New Password:"><br>
+    <input class="int" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"><br>
+    <button class="Submit" type="button" onclick="password_match()">SUBMIT</button><br><br>
+    <div id="show_res"></div>
 </div>
+</form>
+<script src="/admin/js/jquery-3.3.1.js"></script>
+<script>
+    function password_match() {
+        var password=document.getElementById('password').value;
+        var cpassword=document.getElementById('cpassword').value;
+        $.post("check.php",
+            {
+                pass1:password,pass2:cpassword
+            },
+            function (data,status) {
+            document.getElementById('show_res').innerHTML=data;
 
-
+            }
+        )
+    }
+</script>
 <?php
-include ("footer.php")
+require "tib_db.php";
+
+    if($_POST)
+    {
+        $youremail=$_POST['youremail'];
+        $password=$_POST['password'];
+    $selectquery=mysqli_query($con,"select * from users where u_email='{$youremail}'")or die(mysqli_error($con));
+    $count=mysqli_num_rows($selectquery);
+    $row=mysqli_fetch_array($selectquery);
+    if($count>0)
+    {
+        echo $row['u_password'];
+    }
+    else
+    {
+        echo "<script>alert('incorrect Email!')</script>";
+    }
+}
+
+
+include ("footer.php");
 ?>
 
 </body>
