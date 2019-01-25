@@ -32,12 +32,12 @@ include("header.php");
 <h4 class="fp"><i class=" 	far fa-question-circle"></i> Forgot Password</h4>
 <div class="box">
     <input class="int" type="text"  id=youremail name=youremail placeholder="Your email:"><br>
-    <button class="Code"type="button"> Send Code</button><br>
+    <button class="Code"type="button" name="sendcode"> Send Code</button><br>
     <input class="int" type="text" placeholder="Code we sent:"><br>
     <h3 class="new"> Reset Password</h3>
     <input class="int" type="password" name="password" id="password" placeholder="New Password:"><br>
     <input class="int" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"><br>
-    <button class="Submit" type="button" onclick="password_match()">SUBMIT</button><br><br>
+    <button class="Submit" id="button" name="submit" type="button" onclick="password_match()">SUBMIT</button><br><br>
     <div id="show_res"></div>
 </div>
 </form>
@@ -60,22 +60,26 @@ include("header.php");
 <?php
 require "tib_db.php";
 
-    if($_POST)
-    {
+if(isset($_POST['sendcode']))
+{
+    //if($_POST)
+    //{
         $youremail=$_POST['youremail'];
         $password=$_POST['password'];
-    $selectquery=mysqli_query($con,"select * from users where u_email='{$youremail}'")or die(mysqli_error($con));
-    $count=mysqli_num_rows($selectquery);
-    $row=mysqli_fetch_array($selectquery);
-    if($count>0)
-    {
-        echo $row['u_password'];
-    }
-    else
-    {
-        echo "<script>alert('incorrect Email!')</script>";
-    }
+        $selectquery=mysqli_query($con,"select * from users where u_email='{$youremail}'")or die(mysqli_error($con));
+        $count=mysqli_num_rows($selectquery);
+        $row=mysqli_fetch_array($selectquery);
+        if($count>0)
+        {
+            $squery=mysqli_query($con,"update tib SET u_password=$password where u_email=$youremail");
+        }
+        else
+        {
+            echo "<script>alert('incorrect Email!')</script>";
+        }
+    //}
 }
+
 
 
 include ("footer.php");
