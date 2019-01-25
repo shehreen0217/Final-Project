@@ -1,3 +1,28 @@
+<?php
+require "tib_db.php";
+
+function insertdata()
+{
+    global $con;
+    if(isset($_POST['contactusbutton']))
+    {
+        $g_name = $_POST['g_name'];
+        $g_email = $_POST['g_email'];
+        $g_cn = $_POST['g_cn'];
+        $g_message = $_POST['g_message'];
+
+        $insert_data = " insert into guest (g_name, g_email, g_cn, g_message)
+                          VALUES ('$g_name','$g_email','$g_cn','$g_message');";
+        $insert_val = mysqli_query($con, $insert_data);
+
+        if($insert_val)
+        {
+            header("location: ".$_SERVER['PHP_SELF']);
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,23 +60,23 @@ include("header.php")
 
     <div class="box" align="center">
 
-        <label for="rpwd"> Name</label>
+        <label for="name"> Name</label>
         <div class="form">
-            <input type="text" class="form-control" id="rpwd" placeholder="          Your name here" name="rpwd">
+            <input type="text" class="form-control" id="name" placeholder="          Your name here" name="name">
         </div>
-        <label for="rpwd"> Email</label>
+        <label for="email"> Email</label>
         <div class="form">
-            <input type="text" class="form-control" id="rpwd" placeholder="          Your e-mail here" name="rpwd">
+            <input type="text" class="form-control" id="email" placeholder="          Your e-mail here" name="email">
         </div>
-        <label for="rpwd"> Contact Number </label>
+        <label for="cn"> Contact Number </label>
         <div class="form">
-            <input type="text" class="form-control" id="rpwd" placeholder="          Your contact number" name="rpwd">
+            <input type="text" class="form-control"   id="cn" placeholder="          Your contact number" name="cn">
         </div>
-        <label for="rpwd"> Message</label>
+        <label for="message"> Message</label>
         <div class="form1">
-            <input type="text" class="form-control" id="rpwd" placeholder="                                         Your message here" name="rpwd">
+            <input type="text" class="form-control" id="message" placeholder="                                         Your message here" name="message">
         </div>
-        <button class="button1" type="submit" value="Submit">Let's Talk</button>
+        <button class="button1" type="submit" name="contactusbutton" value="Submit" onclick="ValidatingForm()">Let's Talk</button>
     </div>
     <div class="para" align="center">
         <h4> <b> Our Links </b> </h4>
@@ -68,6 +93,40 @@ include("header.php")
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.616123601826!2d74.26573642537555!3d31.446915973919346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919017432b1835b%3A0xe396992a5b05891c!2sUniversity+of+Central+Punjab!5e0!3m2!1sen!2s!4v1542485280139" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 </div>
+
+
+<script>
+    function ValidatingForm()
+    {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var cn = document.getElementById("cn").value;
+
+        var regex = /[a-zA-Z]/;
+        var result1 = name.match(regex);
+        regex = /([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))/;
+        var result2 = email.match(regex);
+        regex = /([0-9]{4})?\-?([0-9]{7})?/;
+        var result3 = cn.match(regex);
+
+        if(result1 != null && result2 != null && result3 != null)
+        {
+            console.log("data inserted");
+            <?php
+            insertdata();
+            ?>
+        }
+        else
+        {
+            console.log("data not inserted");
+        }
+
+    }
+
+
+</script>
+
+
 
 <?php
 include ("footer.php")

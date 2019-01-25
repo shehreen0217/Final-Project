@@ -1,10 +1,6 @@
 <?php
 require "tib_db.php";
 
-
-
-
-
 function insertdata()
 {
     global $con;
