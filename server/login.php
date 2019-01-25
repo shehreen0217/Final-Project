@@ -1,3 +1,23 @@
+<?php
+include("header.php");
+include("tib_db.php");
+$error_msg=' ';
+
+if (isset($_POST['login2'])) {
+    $uname = $_POST['uname'];
+    $pass = $_POST['pass'];
+    $query = "select * from users where u_username='$uname' and u_password= '$pass'";
+    $count = mysqli_query($con, $query);
+    $checking = mysqli_num_rows($count);  //getting user names if there are any according to the input
+
+    if($checking!=0) {
+        header('location:../index.php');
+    }
+    else
+        $error_msg = 'Wrong username or password, try again';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +32,7 @@
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Pacifico|Spicy+Rice|Sedgwick+Ave|Archivo+Black|Lobster" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <?php
-    require "functions.php"
-    ?>
+
 
 
     <style>
@@ -90,14 +108,16 @@
         }
         .login-button {
             margin-bottom:10px;
+
         }
     </style>
 </head>
 
+
 <body id="bg">
-<?php
-include("header.php")
-?>
+
+
+<form class="login_form" action="login.php" method="post">
 <div class="container">
     <div  class="login">
         <div class="login-header">
@@ -105,17 +125,18 @@ include("header.php")
         </div>
         <div class="login-form">
             <h3><i class="fas fa-user"></i> Username:</h3>
-            <input type="text" id="username" placeholder="Username"/><br>
+            <input type="text" name="uname" placeholder="Username"/><br>
             <h3><i class="fas fa-key"></i> Password:</h3>
-            <input type="password" placeholder="Password"/>
+            <input type="password" name="pass" placeholder="Password"/>
+            <div class="text-danger"><?php echo $error_msg;?></div>
             <br>
-            <input type="button" value="Log In" class="login-button"/>
-            <br>
+            <input type="submit" value="Log In" name="login2" class="login-button" style="width: 160px;">     <br>
             <h6 class="no-access"><a href="forget_password.php">Forget Password?</a></h6>
         </div>
     </div>
 
 </div>
+</form>
 
 <?php
 include ("footer.php")
