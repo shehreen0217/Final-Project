@@ -77,19 +77,31 @@ if(!isset($_SESSION['login_checked'])) {
         <h2 class="text-center text-primary"><?php echo @$_GET['logged_in']?></h2>
         <?php
         if(isset($_GET['insert_category'])){
-            include ('insert_categories.php');
+            include('insert_category.php');
         }
         else if(isset($_GET['view_categories'])){
             include ('view_categories.php');
         }
-        else if(isset($_GET['edit_categories'])){
-            include ('edit_categories.php');
+        else if(isset($_GET['edit_category'])){
+            include('edit_category.php');
+        }
+        else if(isset($_GET['delete_category'])){
+            include('delete_category.php');
         }
         else if(isset($_GET['view_users'])){
             include ('view_users.php');
         }
+        else if(isset($_GET['edit_user'])){
+            include ('edit_user.php');
+        }
+        else if(isset($_GET['delete_user'])){
+            include ('delete_user.php');
+        }
         else if(isset($_GET['view_guests'])) {
             include('view_guests.php');
+        }
+        else if(isset($_GET['delete_guest'])) {
+            include('delete_guest.php');
         }
         ?>
     </div>
