@@ -45,6 +45,7 @@ include("header.php");
 <script>
     function password_match() {
         var password=document.getElementById('password').value;
+        
         var cpassword=document.getElementById('cpassword').value;
         $.post("check.php",
             {
