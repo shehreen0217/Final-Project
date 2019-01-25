@@ -31,10 +31,10 @@ if(!isset($_SESSION['login_checked'])) {
                     <tr>
                         <th><?php echo $cat_title; ?></th>
                         <th><img class="img-thumbnail" src='../images/<?php echo $cat_image;?>' width='320' height='160'></th>
-                        <th><a href="index.php?edit_pro=<?php echo $cat_title?>" class="btn btn-primary">
+                        <th><a href="index.php?edit_category=<?php echo $cat_title?>" class="btn btn-primary">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
-                            <a href="index.php?del_pro=<?php echo $cat_title?>" class="btn btn-danger">
+                            <a href="index.php?delete_category=<?php echo $cat_title?>" class="btn btn-danger">
                                 <i class="fa fa-trash-alt"></i> Delete
                             </a>
                         </th>
