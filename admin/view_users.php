@@ -13,7 +13,7 @@ if(!isset($_SESSION['login_checked'])) {
             $run_u = mysqli_query($con,$get_u);
             $count_u = mysqli_num_rows($run_u);
             if($count_u==0){
-                echo "<h2> No Category exist. </h2>";
+                echo "<h2> No Users exist. </h2>";
             }
             else {?>
                 <thead>
@@ -43,10 +43,10 @@ if(!isset($_SESSION['login_checked'])) {
                             <br> <?php echo "Full Name: $u_fname $u_lname";?>
                             <br> <?php echo "Date of Birth: $u_date-$u_month-$u_year"; ?>
                             <br> <?php echo "Gender: $u_gender";?></th>
-                        <th><a href="index.php?edit_users=<?php echo $u_username?>" class="btn btn-primary">
+                        <th><a href="index.php?edit_user=<?php echo $u_username?>" class="btn btn-primary">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
-                            <a href="index.php?delete_users=<?php echo $u_username?>" class="btn btn-danger">
+                            <a href="index.php?delete_user=<?php echo $u_username?>" class="btn btn-danger">
                                 <i class="fa fa-trash-alt"></i> Delete
                             </a>
                         </th>
