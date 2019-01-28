@@ -11,6 +11,13 @@ if (isset($_POST['login2'])) {
     $checking = mysqli_num_rows($count);  //getting user names if there are any according to the input
 
     if($checking!=0) {
+        if(empty($_POST['remember'])) {
+            setcookie('uname','' );
+            setcookie('pass', '');
+        } else {
+            setcookie('uname', $uname, time() + (10 * 365 * 24 * 60 * 60));
+            setcookie('pass', $pass, time() + (10 * 365 * 24 * 60 * 60));
+        }
         header('location:../index.php');
     }
     else
@@ -125,10 +132,14 @@ if (isset($_POST['login2'])) {
         </div>
         <div class="login-form">
             <h3><i class="fas fa-user"></i> Username:</h3>
-            <input type="text" name="uname" placeholder="Username"/><br>
+            <input type="text" value="<?php echo @$_COOKIE['uname']?>" name="uname" placeholder="Username"/><br>
             <h3><i class="fas fa-key"></i> Password:</h3>
-            <input type="password" name="pass" placeholder="Password"/>
+            <input type="password" value="<?php echo @$_COOKIE['pass']?>" name="pass" placeholder="Password"/>
             <div class="text-danger"><?php echo $error_msg;?></div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                <label class="form-check-label" for="remember">&nbsp; &nbsp; Remember me</label>
+            </div>
             <br>
             <input type="submit" value="Log In" name="login2" class="login-button" style="width: 160px;">     <br>
             <h6 class="no-access"><a href="forget_password.php">Forget Password?</a></h6>
