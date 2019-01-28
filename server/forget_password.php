@@ -72,7 +72,7 @@ if(isset($_POST['sendcode']))
         $row=mysqli_num_rows($count);
         if($row>0)
         {
-            $squery=mysqli_query($con,"update tib SET u_password=$password where u_email=$youremail");
+            $squery=mysqli_query($con,"update users SET u_password=$password where u_email=$youremail");
         }
         else
         {
