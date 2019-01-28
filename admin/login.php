@@ -44,7 +44,22 @@ if(isset($_POST['login'])){
     <h1 class="text-primary">Admin Login</h1>
     <h3 class="text-danger"> You are not an Admin of this website! Login first. </h3>
     <input type="text" value="<?php echo @$_COOKIE['a_username']?>" name="admin_username" class="form-control input_box" placeholder="Username">
-    <input type="password" value="<?php echo @$_COOKIE['a_password']?>" name="admin_password" class="form-control input_box" placeholder="Password"><br>
+    <?php
+    if(isset($_POST['login'])) {
+        if(0===preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/",$_POST['admin_username'])) {
+            echo "Enter Valid Admin Username";
+        }
+    }
+    ?>
+    <input type="password" value="<?php echo @$_COOKIE['a_password']?>" name="admin_password" class="form-control input_box" placeholder="Password">
+    <?php
+    if(isset($_POST['login'])) {
+        if(0===preg_match("/(.*)/",$_POST['admin_password'])) {
+            echo "Not Allowed";
+        }
+    }
+    ?>
+    <br>
     <div class="text-danger"><?php echo $error_msg;?></div>
     <div class="form-check">
         <input type="checkbox" class="form-check-input" id="remember" name="remember">

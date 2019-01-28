@@ -132,9 +132,24 @@ if (isset($_POST['login2'])) {
         </div>
         <div class="login-form">
             <h3><i class="fas fa-user"></i> Username:</h3>
-            <input type="text" value="<?php echo @$_COOKIE['uname']?>" name="uname" placeholder="Username"/><br>
+            <input type="text" value="<?php echo @$_COOKIE['uname']?>" name="uname" placeholder="Username"/>
+            <?php
+            if(isset($_POST['login2'])) {
+                if(0===preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/",$_POST['uname'])) {
+                    echo "Enter Valid Username";
+                }
+            }
+            ?>
+            <br>
             <h3><i class="fas fa-key"></i> Password:</h3>
             <input type="password" value="<?php echo @$_COOKIE['pass']?>" name="pass" placeholder="Password"/>
+            <?php
+            if(isset($_POST['login2'])) {
+                if(0===preg_match("/(.*)/",$_POST['pass'])) {
+                    echo "Not Allowed";
+                }
+            }
+            ?>
             <div class="text-danger"><?php echo $error_msg;?></div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
