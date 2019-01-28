@@ -4,9 +4,12 @@ require "tib_db.php";
 include "functions.php";
 ?>
 
+<?php
+$count=0;
+?>
 
 <?php
-$errors=array();
+/*$errors=array();
 if(isset($_POST['signupbutton']))
 {
     if(0===preg_match("/[a-zA-Z]/",$_POST['fname']))
@@ -42,7 +45,7 @@ if(isset($_POST['signupbutton']))
         insertdata();
     }
 }
-?>
+*/?>
 
 
 <!DOCTYPE html>
@@ -88,7 +91,7 @@ include("header.php")
         }
     </style>
     <h1 class="hhh" > <i class="fas fa-users"></i> Sign Up</h1>
-    <form class="sss box" action="" method="post" enctype="multipart/form-data " onsubmit="ValidatingForm()">
+    <form class="sss box" action="register.php" method="post" enctype="multipart/form-data " onsubmit="ValidatingForm()">
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-1"></div>
@@ -97,12 +100,28 @@ include("header.php")
                 </div>
                 <div class="col-lg-2">
                     <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname">
+                    <?php
+                    if(isset($_POST['signupbutton'])) {
+                        if (0 === preg_match("/[a-zA-Z]/", $_POST['fname'])) {
+                            $count++;
+                            echo "Enter Valid First Name";
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="col-lg-2">
                     <label for="lname"><i class="fas fa-user-circle"></i> Last Name:</label>
                 </div>
                 <div class="col-lg-2">
                     <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname">
+                    <?php
+                    if(isset($_POST['signupbutton'])) {
+                        if (0 === preg_match("/[a-zA-Z]/", $_POST['lname'])) {
+                            $count++;
+                            echo "Enter Valid Last Name";
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="col-lg-3"></div>
 
@@ -121,6 +140,14 @@ include("header.php")
                 </div>
                 <div class="col-lg-5">
                     <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                    <?php
+                    if(isset($_POST['signupbutton'])) {
+                        if(0===preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/",$_POST['username'])) {
+                            $count++;
+                            echo "Enter Valid Username";
+                        }
+                    }
+                    ?>
                 </div>
 
 
@@ -139,6 +166,15 @@ include("header.php")
                 </div>
                 <div class="col-lg-6">
                     <input type="email" class="form-control" id="email" placeholder="E-mail" name="email">
+                    <?php
+                    if(isset($_POST['signupbutton'])) {
+                        if(0===preg_match("/.+@.+\..+/",$_POST['email']))
+                        {
+                            $count++;
+                            echo "Invalid Email Please Enter Again";
+                        }
+                    }
+                    ?>
                 </div>
 
 
@@ -150,14 +186,14 @@ include("header.php")
         <div class="form-group" id = "gender">
             <div class="row">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-2">
+               <div class="col-lg-2">
                     <label ><i class="fas fa-transgender"></i> Gender:</label>
                 </div>
                 <div class="col-lg-2">
-                    <label>  <input type="radio" name="gender">Male </label>
+                    <label>  <input type="radio" name="u_gender" value="M">Male </label>
                 </div>
                 <div class="col-lg-2">
-                    <label>  <input type="radio" name="gender">Female </label>
+                    <label>  <input type="radio" name="u_gender" value="F">Female </label>
                 </div>
             </div>
 
@@ -226,7 +262,18 @@ include("header.php")
                 </div>
 
                 <div class="col-lg-2">
-                    <label>Year <input type="text" class="form-control" id="year" placeholder="2018" name="year"> </label>
+                    <label>Year <input type="text" class="form-control" id="year" placeholder="2018" name="year">
+                        <?php
+                        if(isset($_POST['signupbutton'])) {
+                            if(0===preg_match("/\d{4}/",$_POST['year']))
+                            {
+                                $count++;
+                                echo "Enter Valid year";
+                            }
+                        }
+                        ?>
+
+                    </label>
                 </div>
                 <div class="col-lg-3"></div>
             </div>
@@ -243,6 +290,15 @@ include("header.php")
                 </div>
                 <div class="col-lg-6">
                     <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                    <?php
+                    if(isset($_POST['signupbutton'])) {
+                        if(0===preg_match("/(.*)/",$_POST['pwd'])) {
+                            $count++;
+                            echo "Not Allowed";
+                        }
+                    }
+                    ?>
+
                 </div>
                 <div class="col-lg-3"></div>
             </div>
@@ -261,7 +317,23 @@ include("header.php")
                 </div>
                 <div class="col-lg-6">
                     <input type="password" class="form-control" id="rpwd" placeholder="confirm password" name="rpwd">
+                    <?php
+                    if(isset($_POST['signupbutton'])) {
+                        if(0!== strcmp($_POST['pwd'],$_POST['rpwd']))
+                        {
+                            $count++;
+                            echo "password does'nt match";
+                        }
+                    }
+                    ?>
                 </div>
+                <?php
+                if($count==0 )
+                {
+                    insertdata();
+
+                }
+                ?>
                 <div class="col-lg-3"></div>
             </div>
         </div>
@@ -270,7 +342,7 @@ include("header.php")
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2">
-                    <button class="button3" type="submit" name="signupbutton" value="Submit" onclick="ValidatingForm()">Sign Up</button>
+                    <button class="button3" type="submit" name="signupbutton" value="Submit">Sign Up</button>
                 </div>
 
                 <div class="col-lg-2"></div>
@@ -354,13 +426,10 @@ include("header.php")
             document.getElementById(fname).innerText = " Please enter first name";
         }*/
 
-
-
-
     }
-
-
 </script>
+
+
 
 <?php
 include ("footer.php")
