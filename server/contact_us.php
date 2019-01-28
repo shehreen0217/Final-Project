@@ -1,3 +1,24 @@
+<?php
+require "tib_db.php";
+
+function insertinfo()
+{
+    echo "here";
+    global $con;
+    if(isset($_POST['contactusbutton']))
+    {
+        $g_name = $_POST['name'];
+        $g_email = $_POST['email'];
+        $g_cn = $_POST['cn'];
+        $g_message = $_POST['message'];
+
+        $insert_data = " insert into guest (g_name, g_email, g_cn, g_message)
+                          VALUES ('$g_name','$g_email','$g_cn','$g_message');";
+        $insert_val = mysqli_query($con, $insert_data);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +46,7 @@
 include("header.php")
 ?>
 
+<form  action=""  onsubmit="ValidatingForm()" method="post">
 <div class="container">
     <div class="header">
         <h1><i class="fas fa-mail-bulk"></i> Contact Us</h1>
@@ -35,23 +57,23 @@ include("header.php")
 
     <div class="box" align="center">
 
-        <label for="rpwd"> Name</label>
+        <label for="name"> Name</label>
         <div class="form">
-            <input type="text" class="form-control" id="rpwd" placeholder="          Your name here" name="rpwd">
+            <input type="text" class="form-control" id="name" placeholder="          Your name here" name="name">
         </div>
-        <label for="rpwd"> Email</label>
+        <label for="email"> Email</label>
         <div class="form">
-            <input type="text" class="form-control" id="rpwd" placeholder="          Your e-mail here" name="rpwd">
+            <input type="text" class="form-control" id="email" placeholder="          Your e-mail here" name="email">
         </div>
-        <label for="rpwd"> Contact Number </label>
+        <label for="cn"> Contact Number </label>
         <div class="form">
-            <input type="text" class="form-control" id="rpwd" placeholder="          Your contact number" name="rpwd">
+            <input type="text" class="form-control"   id="cn" placeholder="          Your contact number" name="cn">
         </div>
-        <label for="rpwd"> Message</label>
+        <label for="message"> Message</label>
         <div class="form1">
-            <input type="text" class="form-control" id="rpwd" placeholder="                                         Your message here" name="rpwd">
+            <input type="text" class="form-control" id="message" placeholder="                                         Your message here" name="message">
         </div>
-        <button class="button1" type="submit" value="Submit">Let's Talk</button>
+        <button class="button1" type="submit" name="contactusbutton" value="Submit" onclick="ValidatingForm()">Let's Talk</button>
     </div>
     <div class="para" align="center">
         <h4> <b> Our Links </b> </h4>
@@ -69,8 +91,43 @@ include("header.php")
     </div>
 </div>
 
+
+<script>
+    function ValidatingForm()
+    {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var cn = document.getElementById("cn").value;
+
+        var regex = /[a-zA-Z]/;
+        var result1 = name.match(regex);
+        regex = /([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))/;
+        var result2 = email.match(regex);
+        regex = /([0-9]{4})?\-?([0-9]{7})?/;
+        var result3 = cn.match(regex);
+
+        if(result1 != null && result2 != null && result3 != null)
+        {
+            console.log("data inserted");
+            <?php
+            insertinfo();
+            ?>
+        }
+        else
+        {
+            console.log("data not inserted");
+        }
+
+    }
+
+
+</script>
+
+
+
 <?php
 include ("footer.php")
 ?>
+</form>
 </body>
 </html>
