@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <?php
-require "tib_db.php";
-?>
+    require "tib_db.php";
+    ?>
     <script src="/admin/js/jquery-3.3.1.js"></script>
     <script>
         function password_match() {
@@ -44,20 +44,20 @@ require "tib_db.php";
 
         }
     </script>
-<?php
-global $con;
+    <?php
+    global $con;
 
-if(!$con)
-{
-    echo "Not Connected";
-}
-if(!mysqli_select_db($con,'tib'))
-{
-    echo "DB not selected";
-}
+    if(!$con)
+    {
+        echo "Not Connected";
+    }
+    if(!mysqli_select_db($con,'tib'))
+    {
+        echo "DB not selected";
+    }
 
-if(isset($_POST['submitInfo']))
-{
+    if(isset($_POST['submitInfo']))
+    {
         $yourEmail=$_POST['yourEmail'];
         $password=$_POST['password'];
         $selectQuery="select * from users where u_email='$yourEmail'";
@@ -69,7 +69,7 @@ if(isset($_POST['submitInfo']))
             break;
             /*echo "<script>alert('Email Does not exist!')</script>";*/
         }
-}?>
+    }?>
 
 </head>
 <body id="BG">
@@ -77,17 +77,17 @@ if(isset($_POST['submitInfo']))
 include("header.php");
 ?>
 <form action="forget_password.php" method="post">
-<h4 class="fp"><i class=" 	far fa-question-circle"></i> Forgot Password</h4>
-<div class="box">
-    <input class="int" type="text"  id=yourEmail name=yourEmail placeholder="Your email:"><br>
-    <button class="Code" type="button" name="sendCode"> Send Code</button><br>
-     <input class="int" type="text" placeholder="Code we sent:"><br>
-    <h3 class="new"> Reset Password</h3>
-    <input class="int" type="password" name="password" id="password" placeholder="New Password:"><br>
-    <input class="int" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"><br>
-    <button class="Submit" id="button" name="submitInfo" type="submit" onclick="password_match()">SUBMIT</button><br><br>
-    <div id="show_res"></div>
-</div>
+    <h4 class="fp"><i class=" 	far fa-question-circle"></i> Forgot Password</h4>
+    <div class="box">
+        <input class="int" type="text"  id=yourEmail name=yourEmail placeholder="Your email:"><br>
+        <button class="Code" type="button" name="sendCode"> Send Code</button><br>
+        <input class="int" type="text" placeholder="Code we sent:"><br>
+        <h3 class="new"> Reset Password</h3>
+        <input class="int" type="password" name="password" id="password" placeholder="New Password:"><br>
+        <input class="int" type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"><br>
+        <button class="Submit" id="button" name="submitInfo" type="submit" onclick="password_match()">SUBMIT</button><br><br>
+        <div id="show_res"></div>
+    </div>
 </form>
 
 <?php
