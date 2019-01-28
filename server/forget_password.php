@@ -45,7 +45,7 @@ include("header.php");
 <script>
     function password_match() {
         var password=document.getElementById('password').value;
-        
+
         var cpassword=document.getElementById('cpassword').value;
         $.post("check.php",
             {
@@ -68,9 +68,9 @@ if(isset($_POST['sendcode']))
         $youremail=$_POST['youremail'];
         $password=$_POST['password'];
         $selectquery=mysqli_query($con,"select * from users where u_email='{$youremail}'")or die(mysqli_error($con));
-        $count=mysqli_num_rows($selectquery);
-        $row=mysqli_fetch_array($selectquery);
-        if($count>0)
+        $count=mysqli_query($con,$selectquery);
+        $row=mysqli_num_rows($count);
+        if($row>0)
         {
             $squery=mysqli_query($con,"update tib SET u_password=$password where u_email=$youremail");
         }

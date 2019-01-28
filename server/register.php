@@ -249,7 +249,7 @@ include("header.php")
 <script>
     function ValidatingForm()
     {
-        var fname = document.getElementById("fname").value;
+       /* var fname = document.getElementById("fname").value;
         var lname = document.getElementById("lname").value;
         var username = document.getElementById("username").value;
         var email = document.getElementById("email").value;
@@ -284,9 +284,7 @@ include("header.php")
                         if(result1 != null && result2 != null && result3 != null && result4 != null
                             && result5 != null && result6 != null  )
                         {
-                            <?php
-                            insertdata();
-                            ?>
+
 
 
                         }
@@ -313,13 +311,54 @@ include("header.php")
         else
         {
             document.getElementById(fname).innerText = " Please enter first name";
-        }
+        }*/
+
+
 
 
     }
 
 
 </script>
+
+<?php
+$errors=array();
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+    if(0===preg_match("[a-zA-Z]",$_POST['fname']))
+    {
+        $errors['fname']="please enter first name";
+    }
+    if(0===preg_match("[a-zA-Z]",$_POST['lname']))
+    {
+        $errors['lname']="please enter last name";
+    }
+    if(0===preg_match("[a-zA-Z]((\.|_)*)?([0-9]*)?",$_POST['username']))
+    {
+        $errors['username']="please enter username";
+    }
+    if(0===preg_match("([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))",$_POST['email']))
+    {
+        $errors['email']="please enter email";
+    }
+    if(0===preg_match("\d[4]/",$_POST['year']))
+    {
+        $errors['year']="please enter year";
+    }
+    if(0===preg_match("(.*)",$_POST['pwd']))
+    {
+        $errors['pwd']="please enter password";
+    }
+    if(0!== strcmp($_POST['pwd'],$_POST['rpwd']))
+    {
+        $errors['rpwd']="password does'nt match";
+    }
+    if(0===count($errors))
+    {
+        insertdata();
+    }
+}
+?>
 
 <?php
 include ("footer.php")
