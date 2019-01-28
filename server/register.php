@@ -4,6 +4,47 @@ require "tib_db.php";
 include "functions.php";
 ?>
 
+
+<?php
+$errors=array();
+if(isset($_POST['signupbutton']))
+{
+    if(0===preg_match("/[a-zA-Z]/",$_POST['fname']))
+    {
+        $errors['fname']="please enter first name";
+    }
+    if(0===preg_match("/[a-zA-Z]/",$_POST['lname']))
+    {
+        $errors['lname']="please enter last name";
+    }
+    if(0===preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/",$_POST['username']))
+    {
+        $errors['username']="please enter username";
+    }
+    if(0===preg_match("/.+@.+\..+/",$_POST['email']))
+    {
+        $errors['email']="please enter email";
+    }
+    if(0===preg_match("/\d[4]/",$_POST['year']))
+    {
+        $errors['year']="please enter year";
+    }
+    if(0===preg_match("/(.*)/",$_POST['pwd']))
+    {
+        $errors['pwd']="please enter password";
+    }
+    if(0!== strcmp($_POST['pwd'],$_POST['rpwd']))
+    {
+        $errors['rpwd']="password does'nt match";
+    }
+    if(0===count($errors))
+    {
+        insertdata();
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -320,45 +361,6 @@ include("header.php")
 
 
 </script>
-
-<?php
-$errors=array();
-if($_SERVER['REQUEST_METHOD']=='POST')
-{
-    if(0===preg_match("[a-zA-Z]",$_POST['fname']))
-    {
-        $errors['fname']="please enter first name";
-    }
-    if(0===preg_match("[a-zA-Z]",$_POST['lname']))
-    {
-        $errors['lname']="please enter last name";
-    }
-    if(0===preg_match("[a-zA-Z]((\.|_)*)?([0-9]*)?",$_POST['username']))
-    {
-        $errors['username']="please enter username";
-    }
-    if(0===preg_match("([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))",$_POST['email']))
-    {
-        $errors['email']="please enter email";
-    }
-    if(0===preg_match("\d[4]/",$_POST['year']))
-    {
-        $errors['year']="please enter year";
-    }
-    if(0===preg_match("(.*)",$_POST['pwd']))
-    {
-        $errors['pwd']="please enter password";
-    }
-    if(0!== strcmp($_POST['pwd'],$_POST['rpwd']))
-    {
-        $errors['rpwd']="password does'nt match";
-    }
-    if(0===count($errors))
-    {
-        insertdata();
-    }
-}
-?>
 
 <?php
 include ("footer.php")
