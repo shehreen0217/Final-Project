@@ -8,46 +8,6 @@ include "functions.php";
 $count=0;
 ?>
 
-<?php
-/*$errors=array();
-if(isset($_POST['signupbutton']))
-{
-    if(0===preg_match("/[a-zA-Z]/",$_POST['fname']))
-    {
-        $errors['fname']="please enter first name";
-    }
-    if(0===preg_match("/[a-zA-Z]/",$_POST['lname']))
-    {
-        $errors['lname']="please enter last name";
-    }
-    if(0===preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/",$_POST['username']))
-    {
-        $errors['username']="please enter username";
-    }
-    if(0===preg_match("/.+@.+\..+/",$_POST['email']))
-    {
-        $errors['email']="please enter email";
-    }
-    if(0===preg_match("/\d[4]/",$_POST['year']))
-    {
-        $errors['year']="please enter year";
-    }
-    if(0===preg_match("/(.*)/",$_POST['pwd']))
-    {
-        $errors['pwd']="please enter password";
-    }
-    if(0!== strcmp($_POST['pwd'],$_POST['rpwd']))
-    {
-        $errors['rpwd']="password does'nt match";
-    }
-    if(0===count($errors))
-    {
-        insertdata();
-    }
-}
-*/?>
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -70,7 +30,43 @@ if(isset($_POST['signupbutton']))
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script>
+        function checkEmail(str) {
+            if (str.length == 0) {
+                document.getElementById("hint").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("hint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "check_email.php?e=" + str, true);
+                xmlhttp.send();
+                //document.getElementById('hint').innerHTML = 'loading...';
+            }
+        }
+    </script>
 
+    <script>
+        function checkUsername(str) {
+            if (str.length == 0) {
+                document.getElementById("hint2").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("hint2").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "check_username.php?e=" + str, true);
+                xmlhttp.send();
+                //document.getElementById('hint').innerHTML = 'loading...';
+            }
+        }
+    </script>
 
 </head>
 <body  id="bg">
@@ -139,7 +135,8 @@ include("header.php")
                     <label for="username"><i class="far fa-user"></i> Username:</label>
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                    <input type="text" class="form-control" id="username" placeholder="Username" name="username" onkeyup="checkUsername(this.value)">
+                    <span class="text-danger" id="hint2"></span>
                     <?php
                     if(isset($_POST['signupbutton'])) {
                         if(0===preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/",$_POST['username'])) {
@@ -165,7 +162,8 @@ include("header.php")
                     <label for="email"><i class="far fa-envelope-open"></i> Email:</label>
                 </div>
                 <div class="col-lg-6">
-                    <input type="email" class="form-control" id="email" placeholder="E-mail" name="email">
+                    <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" onkeyup="checkEmail(this.value)">
+                    <span class="text-danger" id="hint"></span>
                     <?php
                     if(isset($_POST['signupbutton'])) {
                         if(0===preg_match("/.+@.+\..+/",$_POST['email']))
@@ -176,11 +174,7 @@ include("header.php")
                     }
                     ?>
                 </div>
-
-
             </div>
-
-
         </div>
 
         <div class="form-group" id = "gender">

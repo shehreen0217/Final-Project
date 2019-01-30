@@ -1,9 +1,6 @@
 <?php
 require "tib_db.php";
 
-
-
-
 function insertdata()
 {
     global $con;
@@ -26,10 +23,10 @@ function insertdata()
                           VALUES ('$u_username','$u_fname','$u_lname','$u_email','$u_gender','$u_date','$u_month','$u_year','$u_pass');";
             $insert_val = mysqli_query($con, $insert_data);
 
-            if($insert_val)
+           /* if($insert_val)
             {
                 header('location:register.php');
-            }
+            }*/
 
         }
         else
