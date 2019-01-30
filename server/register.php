@@ -47,9 +47,6 @@ $count=0;
                 //document.getElementById('hint').innerHTML = 'loading...';
             }
         }
-    </script>
-
-    <script>
         function checkUsername(str) {
             if (str.length == 0) {
                 document.getElementById("hint2").innerHTML = "";
@@ -143,6 +140,14 @@ include("header.php")
                             $count++;
                             echo "Enter Valid Username";
                         }
+                        $username = $_POST['username'];
+                        $sQuery ="select u_username from users where u_username='$username'";
+                        $c = mysqli_query($con,$sQuery);
+                        $r=mysqli_num_rows($c);
+                        if($r>0)
+                        {
+                            $count++;
+                        }
                     }
                     ?>
                 </div>
@@ -170,6 +175,14 @@ include("header.php")
                         {
                             $count++;
                             echo "Invalid Email Please Enter Again";
+                        }
+                        $email = $_POST['email'];
+                        $sQuery ="select u_email from users where u_email='$email'";
+                        $c = mysqli_query($con,$sQuery);
+                        $r=mysqli_num_rows($c);
+                        if($r>0)
+                        {
+                            $count++;
                         }
                     }
                     ?>
@@ -350,80 +363,6 @@ include("header.php")
     </form>
 
 </div>
-
-
-
-<script>
-    function ValidatingForm()
-    {
-       /* var fname = document.getElementById("fname").value;
-        var lname = document.getElementById("lname").value;
-        var username = document.getElementById("username").value;
-        var email = document.getElementById("email").value;
-        var date = document.getElementById("date").value;
-        var month = document.getElementById("month").value;
-        var year = document.getElementById("year").value;
-        var pass = document.getElementById("pwd").value;
-        var pass2 = document.getElementById("rpwd").value;
-        var gender = document.getElementById("gender").value;
-
-        var regex = /[a-zA-Z]+/;
-        var result1 = fname.match(regex); // firstname validation
-        regex = /[a-zA-Z]+/;
-        var result2 = lname.match(regex); // lastname validation
-        regex = /[a-zA-Z]((\.|_)*)?([0-9]*)?/;
-        var result3 = username.match(regex); // username validation
-        regex = /([a-zA-Z]((\.|_)*)?([0-9]*)?)+(@)(((g|hot)mail)| yahoo|outlook|ucp)((.com)|(.edu.pk)|(.co))/;
-        var result4 = email.match(regex); // email validation
-        regex = /\d[4]/;
-        var result5 = year.match(regex); //year validation
-        regex = /(.*)/;
-        var result6 = pass.match(regex); //password validation
-
-        if(fname.length != 0 )
-        {
-            if(lname.length != 0 )
-            {
-                if(pass.length >= 6 )
-                {
-                    if(pass === pass2)
-                    {
-                        if(result1 != null && result2 != null && result3 != null && result4 != null
-                            && result5 != null && result6 != null  )
-                        {
-
-
-
-                        }
-                        else
-                        {
-                            alert("result1:"+result1);
-                        }
-                    }
-                    else
-                    {
-                        document.getElementById(pass2).innerText = "Password Does not Match, Enter Same Password";
-                    }
-                }
-                else
-                {
-                    document.getElementById(pass).innerText = "Password should be longer than 6 characters";
-                }
-            }
-            else
-            {
-                document.getElementById(lname).innerText= "Please enter last name";
-            }
-        }
-        else
-        {
-            document.getElementById(fname).innerText = " Please enter first name";
-        }*/
-
-    }
-</script>
-
-
 
 <?php
 include ("footer.php")
