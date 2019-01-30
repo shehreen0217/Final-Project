@@ -9,6 +9,16 @@ if(isset($_POST['login'])){
     $a = mysqli_query($con, $query);
     $checking_for_admin = mysqli_num_rows($a);  //getting user names if there are any according to the input
     if($checking_for_admin!=0) {
+        //cookies:
+
+        if(empty($_POST['remember'])) {
+            setcookie('a_username','' );
+            setcookie('a_password', '');
+        } else {
+            setcookie('a_username', $username, time() + (10 * 365 * 24 * 60 * 60));
+            setcookie('a_password', $password, time() + (10 * 365 * 24 * 60 * 60));
+        }
+
         $_SESSION['login_checked'] = $username;
         header('location:index.php');
     }
@@ -33,8 +43,23 @@ if(isset($_POST['login'])){
 <form class="login_form" action="login.php" method="post">
     <h1 class="text-primary">Admin Login</h1>
     <h3 class="text-danger"> You are not an Admin of this website! Login first. </h3>
-    <input type="text" name="admin_username" class="form-control input_box" placeholder="Username">
-    <input type="password" name="admin_password" class="form-control input_box" placeholder="Password"><br>
+    <input type="text" value="<?php echo @$_COOKIE['a_username']?>" name="admin_username" class="form-control input_box" placeholder="Username">
+    <?php
+    if(isset($_POST['login'])) {
+        if(0===preg_match("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/",$_POST['admin_username'])) {
+            echo "Enter Valid Admin Username";
+        }
+    }
+    ?>
+    <input type="password" value="<?php echo @$_COOKIE['a_password']?>" name="admin_password" class="form-control input_box" placeholder="Password">
+    <?php
+    if(isset($_POST['login'])) {
+        if(0===preg_match("/(.*)/",$_POST['admin_password'])) {
+            echo "Not Allowed";
+        }
+    }
+    ?>
+    <br>
     <div class="text-danger"><?php echo $error_msg;?></div>
     <div class="form-check">
         <input type="checkbox" class="form-check-input" id="remember" name="remember">

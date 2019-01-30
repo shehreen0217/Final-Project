@@ -4,21 +4,36 @@ if(!isset($_SESSION['login_checked'])) {
     header('location: login.php');
 }
 
-if(isset($_POST['insert_cat'])){
-    $cat_title = $_POST['cat_title'];
-    $cat_image = $_FILES['cat_image']['name'];
-    $cat_image_tmp = $_FILES['cat_image']['tmp_name'];
-    move_uploaded_file($cat_image_tmp,"../images/$cat_image");
-    $cat_hover = $_POST['cat_hover'];
-    $cat_link = $_POST['cat_link'];
-    $cat_logo = $_POST['cat_logo'];
+if (isset($_POST['insert_cat'])) {
+    if(0===preg_match("/^[a-zA-Z0-9]+[^@_~!#$%^&()+=|\/*.,<>?:;{[}\]]$/",$_POST['cat_title'])) {
+        echo "Enter a valid category name";
+    }
+    else if(0===preg_match("/.+\..+/",$_POST['cat_link']))
+    {
+        echo "Invalid Link";
+    }
+    else if(0===preg_match("/^[a-zA-Z0-9]+.*$/",$_POST['cat_logo'])) {
+        echo "Enter something in logo field";
+    }
+    else if(0===preg_match("/^[a-zA-Z0-9]+.*$/",$_POST['cat_hover'])) {
+        echo "Enter something in hover field";
+    }
+    else {
+        $cat_title = $_POST['cat_title'];
+        $cat_image = $_FILES['cat_image']['name'];
+        $cat_image_tmp = $_FILES['cat_image']['tmp_name'];
+        move_uploaded_file($cat_image_tmp, "../images/$cat_image");
+        $cat_hover = $_POST['cat_hover'];
+        $cat_link = $_POST['cat_link'];
+        $cat_logo = $_POST['cat_logo'];
 
 
-    $insert_cat = "insert into categories (cat_title, cat_image ,cat_hover, cat_link, cat_logo) 
+        $insert_cat = "insert into categories (cat_title, cat_image ,cat_hover, cat_link, cat_logo) 
                   VALUES ('$cat_title','$cat_image','$cat_hover','$cat_link','$cat_logo');";
-    $query2 = mysqli_query($con, $insert_cat);
-    if($insert_cat){
-        header("location: ".$_SERVER['PHP_SELF']);
+        $query2 = mysqli_query($con, $insert_cat);
+        if ($insert_cat) {
+            header("location: " . $_SERVER['PHP_SELF']);
+        }
     }
 }
 ?>

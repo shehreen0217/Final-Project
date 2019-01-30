@@ -322,7 +322,7 @@ include("header.php")
                         if(0!== strcmp($_POST['pwd'],$_POST['rpwd']))
                         {
                             $count++;
-                            echo "password does'nt match";
+                            echo "password doesn't match";
                         }
                     }
                     ?>

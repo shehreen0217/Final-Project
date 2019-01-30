@@ -13,7 +13,7 @@ function insertdata()
         $u_fname = $_POST['fname'];
         $u_lname = $_POST['lname'];
         $u_email = $_POST['email'];
-        $u_gender = $_POST['gender'];
+        $u_gender = $_POST['u_gender'];
         $u_date = $_POST['date'];
         $u_month = $_POST['month'];
         $u_year = $_POST['year'];
@@ -28,7 +28,7 @@ function insertdata()
 
             if($insert_val)
             {
-                header("location: ".$_SERVER['PHP_SELF']);
+                header('location:register.php');
             }
 
         }
